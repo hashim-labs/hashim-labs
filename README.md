@@ -103,8 +103,12 @@ I'm always eager to learn and explore new technologies. Feel free to ask me abou
 </table>
 
 ---
-[![](https://visitcount.itsvg.in/api?id=asimvijay&icon=0&color=0)](https://visitcount.itsvg.in)
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=asimvijay&theme=tokyonight&no-frame=true&margin-w=10&row=1" /></a> </p>
+### ⚡ GitHub Metrics
+
+<p align="center ">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=asimvijay&theme=tokyonight" />
+</p>
+
 
 ## 💰 You can help me by Donating
 
