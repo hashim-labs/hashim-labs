@@ -78,11 +78,11 @@ I'm always eager to learn and explore new technologies. Feel free to ask me abou
 <table>
   <tr>
     <td>
-      <img src="https://github-readme-stats.vercel.app/api?username=asimvijay&theme=dark&hide_border=false&include_all_commits=false&count_private=false" alt="GitHub Stats">
+      <img src="https://github-readme-stats-sigma-five.vercel.app/api?username=asimvijay&show_icons=true&theme=tokyonight&hide_border=true" />
       <br/>
       <img src="https://github-readme-streak-stats.herokuapp.com/?user=asimvijay&theme=dark&hide_border=false" alt="GitHub Streak">
       <br/>
-      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=asimvijay&theme=dark&hide_border=false&include_all_commits=false&count_private=false&layout=compact" alt="Top Languages">
+      <img src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=asimvijay&layout=compact&theme=tokyonight&hide_border=true" />
     </td>
     <td>
       <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZW9hdGM1ZzBjNzRrNDVlNWpia3lwcG1pNm9waHFkZTFtZWkwc2huZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xTcnSWYZvafyhEACBO/giphy.gif" alt="Animated Background" style="max-width: 100%; height: auto;">
@@ -94,7 +94,7 @@ I'm always eager to learn and explore new technologies. Feel free to ask me abou
 <table>
   <tr>
     <td>
-      <img src="https://github-contributor-stats.vercel.app/api?username=asimvijay&limit=5&theme=dark&combine_all_yearly_contributions=true" alt="Top Contributed Repo">
+      <img src="https://github-readme-activity-graph.vercel.app/graph?username=asimvijay&theme=tokyo-night&hide_border=true" />
     </td>
     <td>
       <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnNkOTZscXc3cTBnMWVhMmo0Z2g2NjZjZHh5OXhzbTk1Nmtsdmk5ZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/lp3GUtG2waC88/giphy.gif" alt="Animated Background" style="max-width: 100%; height: auto;">
@@ -104,7 +104,7 @@ I'm always eager to learn and explore new technologies. Feel free to ask me abou
 
 ---
 [![](https://visitcount.itsvg.in/api?id=asimvijay&icon=0&color=0)](https://visitcount.itsvg.in)
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=asimvijay&theme=algolia" alt="afzalimdad9" /></a> </p>
+<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=asimvijay&theme=tokyonight&no-frame=true&margin-w=10&row=1" /></a> </p>
 
 ## 💰 You can help me by Donating
 
