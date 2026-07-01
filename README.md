@@ -78,11 +78,11 @@ I'm always eager to learn and explore new technologies. Feel free to ask me abou
 <table>
   <tr>
     <td>
-      <img src="https://github-readme-stats-sigma-five.vercel.app/api?username=asimvijay&show_icons=true&theme=tokyonight&hide_border=true" />
+      <img src="https://github-readme-stats-sigma-five.vercel.app/api?username=hashim-labs&show_icons=true&theme=tokyonight&hide_border=true" />
       <br/>
-      <img src="https://github-readme-streak-stats.herokuapp.com/?user=asimvijay&theme=dark&hide_border=false" alt="GitHub Streak">
+      <img src="https://github-readme-streak-stats.herokuapp.com/?user=hashim-labs&theme=dark&hide_border=false" alt="GitHub Streak">
       <br/>
-      <img src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=asimvijay&layout=compact&theme=tokyonight&hide_border=true" />
+      <img src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=hashim-labs&layout=compact&theme=tokyonight&hide_border=true" />
     </td>
     <td>
       <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZW9hdGM1ZzBjNzRrNDVlNWpia3lwcG1pNm9waHFkZTFtZWkwc2huZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xTcnSWYZvafyhEACBO/giphy.gif" alt="Animated Background" style="max-width: 100%; height: auto;">
@@ -94,7 +94,7 @@ I'm always eager to learn and explore new technologies. Feel free to ask me abou
 <table>
   <tr>
     <td>
-      <img src="https://github-readme-activity-graph.vercel.app/graph?username=asimvijay&theme=tokyo-night&hide_border=true" />
+      <img src="https://github-readme-activity-graph.vercel.app/graph?username=hashim-labs&theme=tokyo-night&hide_border=true" />
     </td>
     <td>
       <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnNkOTZscXc3cTBnMWVhMmo0Z2g2NjZjZHh5OXhzbTk1Nmtsdmk5ZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/lp3GUtG2waC88/giphy.gif" alt="Animated Background" style="max-width: 100%; height: auto;">
@@ -106,7 +106,7 @@ I'm always eager to learn and explore new technologies. Feel free to ask me abou
 ### ⚡ GitHub Metrics
 
 <p align="center ">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=asimvijay&theme=tokyonight" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=hashim-labs&theme=tokyonight" />
 </p>
 
 
