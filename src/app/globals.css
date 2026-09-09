@@ -25,6 +25,27 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.portfolio-alert {
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 1rem;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+}
+
+.portfolio-alert-title {
+  letter-spacing: -0.02em;
+}
+
+.portfolio-alert-copy {
+  color: #94a3b8;
+}
+
+.portfolio-alert-button {
+  border-radius: 0.75rem;
+  color: #0f172a;
+  font-weight: 700;
+  padding: 0.75rem 1.25rem;
+}
+
 
 @theme inline {
   --animate-meteor-effect: meteor 5s linear infinite;

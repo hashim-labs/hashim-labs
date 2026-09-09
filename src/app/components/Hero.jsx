@@ -14,7 +14,7 @@ const features = [
 ];
 
 const floatingMessages = [
-  "Why choose us?",
+  "Why choose me?",
   "24/7 AI Agents",
   "Built with AI",
   "Multi-modal I/O",

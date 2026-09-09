@@ -25,7 +25,7 @@ export default function About() {
     },
     {
       year: '2023 - 2025',
-      title: 'Higher Diploma In Software Engineering(HDSE)',
+      title: 'Advance Diploma In Software Engineering(ADSE)',
       company: 'Aptech Pakistan',
       description: 'Graduated with honors. Specialized in software engineering and AI.',
     },
@@ -33,13 +33,13 @@ export default function About() {
       year: '2023 - 2027',
       title: "Bachelor's In Business Administration(BBA)",
       company: 'Aptech Pakistan',
-      description: 'Graduated with honors. Specialized in business building strategies, accounting.',
+      description: 'Graduating with honors. Specializing in business building strategies, accounting.',
     },
     {
       year: '2025 - 2026',
       title: "Certified Agentic AI Specialist",
       company: 'PIAIC',
-      description: 'Graduated with honors. Specialized in software engineering and Agentic AI, Model training, Data scietntist.',
+      description: 'Graduating with honors. Specializing in Agentic AI, Model training, Data scientist.',
     },
   ];
 

@@ -14,6 +14,21 @@ Real-time Data Management: A Python application with PostgreSQL for efficient da
 Flask Monitoring Project: A tool for real-time system monitoring.<br>
 
 I'm always eager to learn and explore new technologies. Feel free to ask me about my journey in web development, my favorite tech stack, or how I approach challenges in my projects.
+
+## Portfolio Lead Storage
+
+The contact form saves inquiries to Neon Postgres and the private admin area is available at `/control-panel`.
+
+Create `.env.local` from `.env.example` and set:
+
+```env
+DATABASE_URL="your Neon connection string"
+ADMIN_USERNAME="admin"
+ADMIN_PASSWORD="a temporary password with at least 12 characters"
+ADMIN_SESSION_SECRET="a random value with at least 32 characters"
+```
+
+The first admin login creates the account with a bcrypt password hash. Change the temporary password immediately from the control panel. Never commit `.env.local` or share the database connection string. Rotate the Neon password if it has been exposed.
  <h1 align="center">
   <img src="https://readme-typing-svg.herokuapp.com?font=Righteous&size=35&center=true&vCenter=true&width=500&height=70&duration=4000&lines=Let's+Be+Creative" alt="Typing SVG">
 </h1><br>

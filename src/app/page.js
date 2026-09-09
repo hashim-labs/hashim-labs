@@ -12,6 +12,7 @@ import AboutSection from './components/About';
 import { FeaturesSectionDemo } from './components/Gride';
 import ComitCart from './components/ui/cometCart';
 import { ExpandableCardDemo } from './components/Testimonials';
+import Contact from './components/Contact';
 
 export default function Home() {
   const parallaxRef = useRef(null);
@@ -178,6 +179,7 @@ export default function Home() {
         {/* Services and Projects Sections */}
         <ServicesSection />
         <ProjectsShowcase />
+        <Contact />
       </motion.div>
 
       {/* Grid Overlay */}
