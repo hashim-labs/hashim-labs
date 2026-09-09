@@ -26,7 +26,10 @@ DATABASE_URL="your Neon connection string"
 ADMIN_USERNAME="admin"
 ADMIN_PASSWORD="a temporary password with at least 12 characters"
 ADMIN_SESSION_SECRET="a random value with at least 32 characters"
+GEMINI_API_KEY="your Gemini API key"
 ```
+
+The profile bot demo is available from the AI section's `View Demo` button. Greetings are answered locally without Gemini or database usage. After a visitor provides verified contact and project details, Gemini answers from `public/cv/hashim_profile.json` and classifies whether the conversation is a genuine lead. Only genuine leads are saved in the private control panel. To connect the same bot to Meta WhatsApp Cloud API, configure `WHATSAPP_VERIFY_TOKEN`, `WHATSAPP_PHONE_NUMBER_ID`, and `WHATSAPP_ACCESS_TOKEN`, then register `/api/whatsapp/webhook` as the Meta webhook URL. Credentials are intentionally not included in source control.
 
 The first admin login creates the account with a bcrypt password hash. Change the temporary password immediately from the control panel. Never commit `.env.local` or share the database connection string. Rotate the Neon password if it has been exposed.
  <h1 align="center">

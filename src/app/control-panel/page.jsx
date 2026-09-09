@@ -11,11 +11,29 @@ export default function ControlPanel() {
   const [login, setLogin] = useState({ username: '', password: '' });
   const [password, setPassword] = useState(emptyPassword);
   const [leads, setLeads] = useState([]);
+  const [botChats, setBotChats] = useState([]);
+  const [expandedChats, setExpandedChats] = useState({});
   const [message, setMessage] = useState({ type: '', text: '' });
   const [loading, setLoading] = useState(true);
   const [isLoggingIn, setIsLoggingIn] = useState(false);
   const [isChangingPassword, setIsChangingPassword] = useState(false);
   const [isLoggingOut, setIsLoggingOut] = useState(false);
+
+  const deleteBotChats = async () => {
+    const confirmation = await confirmAction('Delete previous bot chats?', 'This permanently removes saved bot questions and answers. Leads are not deleted.', 'Delete chats');
+    if (!confirmation.isConfirmed) return;
+    showLoading('Deleting bot chats...');
+    try {
+      const response = await fetch('/api/admin/bot-messages', { method: 'DELETE' });
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.error || 'Unable to delete bot chats.');
+      closeAlert();
+      showSuccess('Chats deleted', `${result.deleted} saved bot chat records were removed.`);
+    } catch (error) {
+      closeAlert();
+      showError('Deletion failed', error.message);
+    }
+  };
 
   const loadLeads = async () => {
     const response = await fetch('/api/admin/leads', { cache: 'no-store' });
@@ -28,13 +46,24 @@ export default function ControlPanel() {
     setLeads(result.leads);
   };
 
+  const loadBotQuestions = async () => {
+    const response = await fetch('/api/admin/bot-messages', { cache: 'no-store' });
+    if (response.status === 401) {
+      setSession(null);
+      return;
+    }
+    const result = await response.json();
+    if (!response.ok) throw new Error(result.error || 'Unable to load bot questions.');
+    setBotChats(result.conversations || []);
+  };
+
   useEffect(() => {
     fetch('/api/admin/me')
       .then(async (response) => response.ok ? response.json() : null)
       .then(async (result) => {
         if (result) {
           setSession(result);
-          await loadLeads();
+          await Promise.all([loadLeads(), loadBotQuestions()]);
         }
       })
       .catch(() => setMessage({ type: 'error', text: 'Unable to connect to the control panel.' }))
@@ -54,7 +83,7 @@ export default function ControlPanel() {
       if (!response.ok) throw new Error(result.error || 'Login failed.');
       setSession(result);
       setLogin({ username: '', password: '' });
-      await loadLeads();
+      await Promise.all([loadLeads(), loadBotQuestions()]);
       closeAlert();
       showSuccess('Welcome back', 'Your admin session is now protected.');
     } catch (error) {
@@ -99,6 +128,7 @@ export default function ControlPanel() {
       await fetch('/api/admin/logout', { method: 'POST' });
       setSession(null);
       setLeads([]);
+      setBotChats([]);
     } finally {
       closeAlert();
       setIsLoggingOut(false);
@@ -124,6 +154,7 @@ export default function ControlPanel() {
         {message.text && <p role="status" className={`mt-5 text-sm ${message.type === 'success' ? 'text-emerald-300' : 'text-rose-300'}`}>{message.text}</p>}
         <section className="mt-8 grid gap-5 sm:grid-cols-3"><div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5"><Inbox className="h-5 w-5 text-cyan-300" /><p className="mt-5 text-3xl font-bold">{leads.length}</p><p className="mt-1 text-sm text-slate-400">Total leads</p></div><div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5"><Mail className="h-5 w-5 text-emerald-300" /><p className="mt-5 text-3xl font-bold">{leads.filter((lead) => lead.status === 'new').length}</p><p className="mt-1 text-sm text-slate-400">New inquiries</p></div><div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5"><KeyRound className="h-5 w-5 text-amber-300" /><p className="mt-5 text-lg font-semibold">Protected</p><p className="mt-1 text-sm text-slate-400">Session and password security active</p></div></section>
         <section className="mt-8 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03]"><div className="border-b border-white/10 p-5"><h2 className="text-xl font-semibold">Portfolio leads</h2><p className="mt-1 text-sm text-slate-400">Inquiries submitted through the public contact form.</p></div>{leads.length === 0 ? <p className="p-8 text-sm text-slate-400">No leads yet.</p> : <div className="divide-y divide-white/10">{leads.map((lead) => <article key={lead.id} className="p-5"><div className="flex flex-col justify-between gap-3 sm:flex-row"><div><h3 className="font-semibold text-white">{lead.name}</h3><a href={`mailto:${lead.email}`} className="text-sm text-cyan-300 hover:text-cyan-200">{lead.email}</a></div><time className="text-xs text-slate-500">{new Date(lead.created_at).toLocaleString()}</time></div><p className="mt-4 whitespace-pre-wrap text-sm leading-6 text-slate-300">{lead.message}</p></article>)}</div>}</section>
+        <section className="mt-8 overflow-hidden rounded-2xl border border-amber-300/20 bg-amber-300/[0.04]"><div className="flex flex-col justify-between gap-4 border-b border-amber-300/10 p-5 sm:flex-row sm:items-center"><div><h2 className="text-xl font-semibold">Bot conversation history</h2><p className="mt-1 text-sm text-slate-400">Compact summaries are shown below. Open one to inspect the full transcript.</p></div><button onClick={deleteBotChats} className="rounded-lg border border-rose-300/30 px-3 py-2 text-xs font-medium text-rose-200 transition hover:bg-rose-300/10">Delete chats</button></div>{botChats.length === 0 ? <p className="p-8 text-sm text-slate-400">No saved conversations.</p> : <div className="divide-y divide-amber-300/10">{botChats.map((chat) => <article key={chat.conversationId} className="p-5"><button onClick={() => setExpandedChats((current) => ({ ...current, [chat.conversationId]: !current[chat.conversationId] }))} className="w-full text-left"><div className="flex flex-col justify-between gap-2 sm:flex-row"><p className="font-medium text-amber-100">{chat.summary}</p><span className="text-xs text-slate-500">{chat.messageCount} messages · {new Date(chat.lastActivity || chat.createdAt).toLocaleString()}</span></div><p className="mt-2 text-xs text-slate-500">{chat.channel}{chat.needsReview ? ' · needs review' : ''}</p></button>{expandedChats[chat.conversationId] && <div className="mt-4 space-y-3 rounded-xl border border-white/10 bg-black/20 p-4">{chat.messages.map((item) => <div key={item.id}><p className="text-xs font-semibold uppercase tracking-[0.15em] text-cyan-300">Visitor</p><p className="mt-1 whitespace-pre-wrap break-words text-sm text-slate-200">{item.question}</p><p className="mt-3 text-xs font-semibold uppercase tracking-[0.15em] text-emerald-300">Hashim AI</p><p className="mt-1 whitespace-pre-wrap break-words text-sm leading-6 text-slate-400">{item.answer}</p></div>)}</div>}</article>)}</div>}</section>
         <section className="mt-8 max-w-xl rounded-2xl border border-white/10 bg-white/[0.03] p-5 sm:p-7"><h2 className="text-xl font-semibold">Change password</h2><p className="mt-1 text-sm text-slate-400">Use a unique password with at least 12 characters.</p><form onSubmit={submitPassword} className="mt-5 space-y-4"><input required disabled={isChangingPassword} type="password" placeholder="Current password" value={password.currentPassword} onChange={(event) => setPassword({ ...password, currentPassword: event.target.value })} className="w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white outline-none focus:border-cyan-300 disabled:opacity-50" /><input required disabled={isChangingPassword} minLength={12} type="password" placeholder="New password" value={password.newPassword} onChange={(event) => setPassword({ ...password, newPassword: event.target.value })} className="w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white outline-none focus:border-cyan-300 disabled:opacity-50" /><input required disabled={isChangingPassword} minLength={12} type="password" placeholder="Confirm new password" value={password.confirmPassword} onChange={(event) => setPassword({ ...password, confirmPassword: event.target.value })} className="w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white outline-none focus:border-cyan-300 disabled:opacity-50" /><button disabled={isChangingPassword} className="inline-flex items-center gap-2 rounded-xl bg-white px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-100 disabled:cursor-not-allowed disabled:opacity-60">{isChangingPassword ? <span className="h-4 w-4 animate-spin rounded-full border-2 border-slate-950/30 border-t-slate-950" /> : <KeyRound className="h-4 w-4" />} {isChangingPassword ? 'Updating...' : 'Update password'}</button></form></section>
       </div>
     </main>

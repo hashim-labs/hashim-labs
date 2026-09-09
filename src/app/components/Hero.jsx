@@ -83,6 +83,11 @@ const Hero = () => {
     }, 4000);
   };
 
+  const openProfileBot = () => {
+    document.getElementById('ai-demo')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    window.setTimeout(() => window.dispatchEvent(new Event('open-profile-bot')), 450);
+  };
+
   const contactInfo = [
     {
       platform: 'Email',
@@ -254,6 +259,15 @@ const Hero = () => {
               whileTap={{ scale: 0.98 }}
             >
               Contact Me
+            </motion.button>
+
+            <motion.button
+              onClick={openProfileBot}
+              className="px-6 py-3 bg-cyan-300 text-slate-950 font-semibold rounded-lg shadow-lg shadow-cyan-500/20"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              Talk to me
             </motion.button>
           </motion.div>
         </div>

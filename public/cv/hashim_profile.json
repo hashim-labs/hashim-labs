@@ -1,0 +1,225 @@
+{
+  "personal_info": {
+    "full_name": "Syed Hashim",
+    "title": "Software | DevOps | AI Engineer",
+    "location": "Malir Cant, University Road, Karachi, Pakistan",
+    "phone": "03240250186",
+    "email": "hashimhasan444@gmail.com",
+    "languages": ["Urdu", "English", "Hindi"],
+    "social_links": {
+      "github": "https://github.com/hashim-labs",
+      "linkedin": "SyedHashim (Hashim hasan)",
+      "facebook": "https://www.facebook.com/profile.php?id=100079640409737",
+      "portfolio": "https://hashim-dev.vercel.app"
+    },
+    "career_start_date": "2022-09-01",
+    "experience_calculation_note": "Calculate years of experience as the difference between today's date and career_start_date, rounded to one decimal (e.g. '4 years').",
+    "summary": "Dynamic and technically adept Software & DevOps Engineer with [calculate from career_start_date] of experience building and deploying scalable web, mobile, and cloud-based applications. Skilled in React, Next.js, React Native, Node.js, and Python, with strong hands-on expertise in Docker, Git-based CI/CD, and cloud deployments on DigitalOcean. Experienced in integrating software with external systems and services, enabling smooth communication between applications, APIs, and hardware-driven environments.",
+    "exposed_to": ["Cyber Security", "AI"]
+  },
+
+  "education": [
+    {
+      "degree": "Bachelor of Business Administration (BBA)",
+      "institution": "Allama Iqbal Open University (AIOU)",
+      "duration": "2023 - present",
+      "notes": "Also enrolled in M.Sc. Administrative Sciences at AIOU"
+    },
+    {
+      "degree": "3-Year Advanced Diploma in Software Engineering",
+      "institution": "Aptech (Pakistan)",
+      "duration": "2023 - 2025"
+    },
+    {
+      "degree": "Intermediate (Pre-Engineering)",
+      "institution": "Islamia Science College, Saddar",
+      "duration": "2021 - 2022"
+    },
+    {
+      "degree": "Matriculation (Science)",
+      "institution": "White House Grammar School",
+      "duration": "2018 - 2020"
+    }
+  ],
+
+  "certifications": [
+    "Aptech - Global Tech Vision Participant (Aptech)",
+    "Docker Basics Unleashed",
+    "Agentic AI & Robotics - PIAIC (Panaversity)",
+    "Software Developer Internship - RCAI NED University",
+    "AI/ML Internship - RCAI NED University",
+    "Microsoft Office - Computer Vision Bootcamp"
+  ],
+
+  "work_experience": [
+    {
+      "title": "Research Assistant",
+      "company": "NCAI-NED (Research Center for Artificial Intelligence, NED University)",
+      "duration": "Jan 2025 - Present",
+      "responsibilities": [
+        "Leading development of firmware and software systems for AI and IoT-based projects",
+        "Managing DigitalOcean deployments and CI/CD pipelines for in-house applications",
+        "Guiding students in AI & software development, systems integration, and software optimization"
+      ]
+    },
+    {
+      "title": "Software Engineer",
+      "company": "Crop2X (Private Limited Company)",
+      "duration": "Jan 2025 - Present",
+      "responsibilities": [
+        "Developed and deployed scalable web and mobile apps using React, Next.js, Node.js, and React Native",
+        "Managed backend APIs, databases, and Dockerized deployments on DigitalOcean"
+      ]
+    },
+    {
+      "title": "Software Developer",
+      "company": "NCAI-NED (Research Center for Artificial Intelligence, NED University)",
+      "duration": "Jul 2024 - Jan 2025",
+      "responsibilities": [
+        "Conducted research and development in firmware-software integration for IoT systems",
+        "Supported AI-driven automation projects, contributing to data acquisition and device control"
+      ]
+    },
+    {
+      "title": "Intern",
+      "company": "RCAI-NED (Research Center for Artificial Intelligence, NED University)",
+      "duration": "Sep 2023 - Jun 2024",
+      "responsibilities": [
+        "Learned practical skills in coding, problem-solving, and development workflows"
+      ]
+    }
+  ],
+
+  "technical_skills": {
+    "programming_and_frameworks": ["React", "Next.js", "React Native", "Node.js", "Express.js", "Python", "Flutter"],
+    "backend_frameworks": ["Flask", "FastAPI", "Django REST Framework"],
+    "databases_and_tools": ["MySQL", "SQL", "MongoDB", "Postgres (Neon)", "SQLite", "Git", "GitHub", "Postman"],
+    "devops_and_deployment": ["Docker", "Nginx", "CI/CD (Git-based)", "DigitalOcean Server Management", "Render", "Vercel"],
+    "ai_and_ml": ["Model Training", "Agentic AI", "Computer Vision (OpenCV, TensorFlow basics)", "Claude Haiku as an AI evaluation judge"],
+    "mapping_and_gis": ["Leaflet", "Google Earth Engine (NDVI/NDMI satellite analysis)"],
+    "other_tools": ["Redux", "Socket.IO", "whatsapp-web.js", "SweetAlert2"],
+    "full_stack": ["MERN Stack Development", "REST APIs", "Authentication systems", "Real-time Dashboards"],
+    "dev_environment": "Develops on Windows (PowerShell)"
+  },
+
+  "projects": [
+    {
+      "name": "KhairAgri",
+      "role": "Full-stack lead developer",
+      "description": "A full-scale agricultural management platform serving thousands of users, with five distinct roles: superadmin, manager, agronomist, farmer, and researcher.",
+      "features": [
+        "GIS field mapping",
+        "Satellite imagery analysis (NDVI/NDMI) via Google Earth Engine",
+        "Soil sensors and weather monitoring",
+        "Crop management",
+        "Role-based dynamic dashboards with real database-driven data",
+        "Automated processing logic that fetches satellite analysis dates, triggers backend tasks, and shows real-time UI states via animated indicators"
+      ],
+      "tech_stack": ["Flask", "FastAPI", "Next.js", "React", "Redux", "Google Earth Engine"],
+      "notes": "Uses province-level geographic data and Pakistani mobile number formats. Client's VPS suffered a security incident (crypto-mining compromise) in Jul 2026; a security audit found 13 vulnerabilities and recommended a full server rebuild and credential rotation."
+    },
+    {
+      "name": "Crop2X - Crop Monitoring System (AG5)",
+      "role": "Developer",
+      "description": "A separate Crop Monitoring System built for client AG5, leveraging IoT sensors and satellite imagery for precision agriculture, enabling real-time environmental data collection and analytics. Distinct from both KhairAgri and the Crop2X mobile app.",
+      "tech_stack": ["IoT sensors", "Satellite imagery"]
+    },
+    {
+      "name": "Crop2X Mobile App (AG5)",
+      "role": "Developer",
+      "description": "A separate Expo React Native mobile app built for client AG5, published under the 'Crop2X Pvt Ltd' developer account. Enhanced with new modules, data features, and performance improvements at RCAI NED.",
+      "tech_stack": ["Expo", "React Native"]
+    },
+    {
+      "name": "AI-Powered Cattle Monitoring System",
+      "role": "Designer & developer",
+      "description": "Real-time cattle monitoring platform using live camera feeds, snapshot APIs, and backend automation for AI-based video analytics and health/activity tracking."
+    },
+    {
+      "name": "Hotel Management System",
+      "role": "Developer",
+      "description": "Scalable hotel management system with secure authentication, reservation handling, billing management, and role-based dashboards."
+    },
+    {
+      "name": "Internship Portal - RCAI Lab",
+      "role": "Co-developer",
+      "description": "Portal connecting hundreds of students with internship and research opportunities."
+    },
+    {
+      "name": "Flutter Authentication System",
+      "role": "Developer",
+      "description": "High-reliability authentication system with SQLite-based local storage, improving app security, reducing login latency, and enabling uninterrupted access without network dependency.",
+      "tech_stack": ["Flutter", "SQLite"]
+    },
+    {
+      "name": "Radar Dataset Hosting Platform",
+      "role": "Architect",
+      "description": "Platform for hosting radar datasets and autonomous driving research, with premium and free download tiers.",
+      "tech_stack": ["Next.js", "Express"]
+    },
+    {
+      "name": "Gum Tree",
+      "role": "Developer",
+      "description": "Tree-planting community mobile app (Expo React Native, package.json name 'treeapp-native', Android package com.gum_tree). Features maps, location, camera-based image upload, and community groups. Published on Google Play under the Crop2X Pvt Ltd developer account.",
+      "tech_stack": ["Expo", "React Native", "react-native-maps"]
+    },
+    {
+      "name": "RVM (Reverse Vending Machine) Mobile Controlling App",
+      "role": "Developer",
+      "description": "Mobile app enabling users to remotely monitor and control RVM hardware operations."
+    },
+    {
+      "name": "Khair (Agriculture SaaS)",
+      "role": "Architect",
+      "description": "SaaS platform for agriculture integrating IoT sensors and AI-driven analytics, providing farms with automated, data-driven insights at scale."
+    },
+    {
+      "name": "AgentOS",
+      "role": "Developer",
+      "description": "Multi-tenant AI Agent Management Platform (Agent-as-a-Service). Adding a local voice cloning + TTS system (XTTS v2 / GPT-SoVITS / StyleTTS2) as an ElevenLabs alternative.",
+      "tech_stack": ["Next.js 14 (App Router)", "TypeScript", "FastAPI (async)", "SQLAlchemy (async)", "SQLite (dev)", "PostgreSQL (prod)", "Groq", "Ollama", "gTTS", "Groq Whisper"]
+    },
+    {
+      "name": "Leadmate",
+      "role": "Developer",
+      "description": "AI-powered sales assistant that helps sales teams manage and act on leads through automated, AI-driven interactions."
+    },
+    {
+      "name": "CIINAI Portal",
+      "role": "Developer",
+      "description": "Web platform for the Centre for Industrial Innovation and Artificial Intelligence, under the Pakistan Industrial Development Corporation. Connects industry with researchers/experts across sectors (textile, cement, automotive, pharma, chemicals, FMCG, steel, aviation), with SECP-verified company registration, OTP verification, and a structured problem-submission form.",
+      "notes": "Assigned by Dr Muhammad Khurram."
+    },
+    {
+      "name": "Pakaging App",
+      "role": "Developer",
+      "description": "Health/wellness tracking mobile app (Expo React Native). Includes Register/Login, a 25-question demographic onboarding flow, and Home/Analytics/Consultation/Mission/Profile tabs, with bilingual (English/Urdu) support.",
+      "tech_stack": ["Expo", "React Native"]
+    },
+    {
+      "name": "FarmBox - WhatsApp OTP Authentication",
+      "role": "Developer",
+      "description": "WhatsApp OTP authentication system using whatsapp-web.js, Socket.IO, and Neon PostgreSQL for shared session state across multiple admin clients."
+    },
+    {
+      "name": "Autonomous AI Worker Performance Monitor (SaaS concept)",
+      "role": "Developer",
+      "description": "Platform concept for tracking, evaluating, and managing AI agents, with hallucination detection and cost efficiency as core differentiators. Built a Phase 1 MVP.",
+      "tech_stack": ["FastAPI", "Next.js", "SQLite", "Claude Haiku (evaluation judge)"]
+    },
+    {
+      "name": "Personal Portfolio",
+      "role": "Developer",
+      "description": "Visually engaging personal portfolio with interactive UI animations, deployed on Vercel.",
+      "url": "https://hashim-dev.vercel.app"
+    }
+  ],
+
+  "faq_style_answers": {
+    "who_is_hashim": "Syed Hashim is a Software, DevOps, and AI Engineer based in Karachi, Pakistan, with 2.5+ years of experience building and deploying scalable web, mobile, and cloud-based applications.",
+    "what_does_he_specialize_in": "Full-stack development (React, Next.js, React Native, Node.js, Python), DevOps (Docker, CI/CD, DigitalOcean deployments), and AI/agentic systems integration.",
+    "where_does_he_work": "He is a Research Assistant at NCAI-NED (Research Center for Artificial Intelligence, NED University) and a Software Engineer at Crop2X (Private Limited Company), both since January 2025.",
+    "what_is_he_studying": "He is pursuing a BBA and M.Sc. Administrative Sciences at Allama Iqbal Open University (AIOU), alongside a completed Advanced Diploma in Software Engineering from Aptech.",
+    "main_project": "KhairAgri, a full-scale agricultural management platform serving thousands of users, with GIS mapping, satellite imagery analysis, sensor integration, and role-based dashboards."
+  }
+}

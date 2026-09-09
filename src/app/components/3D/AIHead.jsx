@@ -3,10 +3,12 @@ import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
 import Spline from '@splinetool/react-spline';
 import { useEffect, useState } from 'react';
+import ProfileBot from '../ProfileBot';
 
 export default function AIHead() {
   const [isMobile, setIsMobile] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [isDemoOpen, setIsDemoOpen] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -19,8 +21,14 @@ export default function AIHead() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
+  useEffect(() => {
+    const openBot = () => setIsDemoOpen(true);
+    window.addEventListener('open-profile-bot', openBot);
+    return () => window.removeEventListener('open-profile-bot', openBot);
+  }, []);
+
   return (
-    <section className="relative min-h-screen w-full text-white overflow-hidden flex items-center justify-center">
+    <section id="ai-demo" className="relative min-h-screen w-full text-white overflow-hidden flex items-center justify-center">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-transparent z-0"></div>
       
@@ -82,7 +90,7 @@ export default function AIHead() {
             <button className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg font-medium hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 transform hover:-translate-y-1 shadow-lg shadow-blue-500/30">
               Get Started
             </button>
-            <button className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-lg font-medium border border-white/20 hover:bg-white/20 transition-all duration-300">
+            <button onClick={() => setIsDemoOpen(true)} className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-lg font-medium border border-white/20 hover:bg-white/20 transition-all duration-300">
               View Demo
             </button>
           </motion.div>
@@ -177,6 +185,8 @@ export default function AIHead() {
           </div>
         </div>
       </motion.div>
+
+      {isDemoOpen && <ProfileBot onClose={() => setIsDemoOpen(false)} />}
     </section>
   );
 }

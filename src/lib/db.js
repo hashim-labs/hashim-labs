@@ -33,10 +33,23 @@ export async function ensureSchema() {
         email VARCHAR(320) NOT NULL,
         message TEXT NOT NULL,
         source VARCHAR(40) NOT NULL DEFAULT 'contact-form',
+        conversation_id VARCHAR(100),
         status VARCHAR(30) NOT NULL DEFAULT 'new',
         created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
       );
       CREATE INDEX IF NOT EXISTS leads_created_at_idx ON leads (created_at DESC);
+      ALTER TABLE leads ADD COLUMN IF NOT EXISTS conversation_id VARCHAR(100);
+      CREATE TABLE IF NOT EXISTS bot_messages (
+        id BIGSERIAL PRIMARY KEY,
+        question TEXT NOT NULL,
+        answer TEXT NOT NULL,
+        needs_review BOOLEAN NOT NULL DEFAULT FALSE,
+        conversation_id VARCHAR(100),
+        channel VARCHAR(30) NOT NULL DEFAULT 'portfolio-demo',
+        created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+      );
+      ALTER TABLE bot_messages ADD COLUMN IF NOT EXISTS conversation_id VARCHAR(100);
+      CREATE INDEX IF NOT EXISTS bot_messages_created_at_idx ON bot_messages (created_at DESC);
     `).catch((error) => {
       schemaPromise = undefined;
       throw error;
