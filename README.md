@@ -14,7 +14,7 @@ Real-time Data Management: A Python application with PostgreSQL for efficient da
 Flask Monitoring Project: A tool for real-time system monitoring.<br>
 
 I'm always eager to learn and explore new technologies. Feel free to ask me about my journey in web development, my favorite tech stack, or how I approach challenges in my projects.
-
+ 
 ## Portfolio Lead Storage
 
 The contact form saves inquiries to Neon Postgres and the private admin area is available at `/control-panel`.
