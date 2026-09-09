@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { ArrowUpRight, Github, Instagram, Linkedin, Mail, MapPin, Phone, Send } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { showError, showSuccess } from '@/lib/alerts';
+import { closeAlert, confirmAction, showError, showLoading, showSuccess } from '@/lib/alerts';
 
 const contactDetails = [
 	{ label: 'Email', value: 'hashimhasan444@gmail.com', href: 'mailto:hashimhasan444@gmail.com', icon: Mail },
@@ -27,7 +27,10 @@ export default function Contact() {
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
+		const confirmation = await confirmAction('Send this inquiry?', 'Your contact details and message will be securely saved for follow-up.', 'Send inquiry');
+		if (!confirmation.isConfirmed) return;
 		setIsSubmitting(true);
+		showLoading('Saving your inquiry...');
 		try {
 			const response = await fetch('/api/leads', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(form) });
 			const result = await response.json();
@@ -35,6 +38,7 @@ export default function Contact() {
 			setForm({ name: '', email: '', message: '' });
 			showSuccess('Inquiry received', 'Thanks for reaching out. Your message has been securely saved.');
 		} catch (error) {
+			closeAlert();
 			showError('Message not sent', error.message || 'Unable to save your inquiry right now.');
 		} finally {
 			setIsSubmitting(false);

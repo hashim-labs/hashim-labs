@@ -26,3 +26,33 @@ export function showError(title, text) {
 export function showInfo(title, text) {
   return Swal.fire({ ...baseOptions, icon: 'info', iconColor: '#67e8f9', title, text, confirmButtonText: 'Okay' });
 }
+
+export function confirmAction(title, text, confirmButtonText = 'Continue') {
+  return Swal.fire({
+    ...baseOptions,
+    icon: 'question',
+    iconColor: '#67e8f9',
+    title,
+    text,
+    showCancelButton: true,
+    confirmButtonText,
+    cancelButtonText: 'Cancel',
+    confirmButtonColor: '#67e8f9',
+    cancelButtonColor: '#334155',
+  });
+}
+
+export function showLoading(title = 'Working securely...') {
+  Swal.fire({
+    ...baseOptions,
+    title,
+    allowOutsideClick: false,
+    allowEscapeKey: false,
+    showConfirmButton: false,
+    didOpen: () => Swal.showLoading(),
+  });
+}
+
+export function closeAlert() {
+  Swal.close();
+}
