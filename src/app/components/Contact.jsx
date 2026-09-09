@@ -9,10 +9,11 @@ const contactDetails = [
 	{ label: 'Email', value: 'hashimhasan444@gmail.com', href: 'mailto:hashimhasan444@gmail.com', icon: Mail },
 	{ label: 'Phone', value: '+92 324 0251086', href: 'tel:+923240251086', icon: Phone },
 	{ label: 'LinkedIn', value: 'linkedin.com/in/syed-hashim-3324a3325', href: 'https://www.linkedin.com/in/syed-hashim-3324a3325', icon: Linkedin },
+	{ label: 'GitHub', value: 'github.com/hashim-labs', href: 'https://github.com/hashim-labs', icon: Github },
 ];
 
 const socialLinks = [
-	{ label: 'GitHub', href: 'https://github.com/', icon: Github },
+	{ label: 'GitHub', href: 'https://github.com/hashim-labs', icon: Github },
 	{ label: 'Instagram', href: 'https://instagram.com/hashim.dev', icon: Instagram },
 ];
 
@@ -58,7 +59,7 @@ export default function Contact() {
 						</div>
 						<div className="mt-12 space-y-4">
 							{contactDetails.map(({ label, value, href, icon: Icon }) => (
-								<a key={label} href={href} className="group flex items-center gap-3 rounded-xl border border-white/10 bg-black/10 p-3 transition hover:border-cyan-300/40 hover:bg-white/[0.06]">
+								<a key={label} href={href} target={href.startsWith('http') ? '_blank' : undefined} rel={href.startsWith('http') ? 'noreferrer' : undefined} className="group flex items-center gap-3 rounded-xl border border-white/10 bg-black/10 p-3 transition hover:border-cyan-300/40 hover:bg-white/[0.06]">
 									<span className="flex h-9 w-9 items-center justify-center rounded-lg bg-cyan-300/10 text-cyan-200"><Icon className="h-4 w-4" /></span>
 									<span className="min-w-0"><span className="block text-xs uppercase tracking-[0.16em] text-slate-500">{label}</span><span className="block truncate text-sm text-slate-200">{value}</span></span>
 									<ArrowUpRight className="ml-auto h-4 w-4 shrink-0 text-slate-500 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-cyan-300" />

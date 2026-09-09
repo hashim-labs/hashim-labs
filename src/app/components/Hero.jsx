@@ -98,15 +98,21 @@ const Hero = () => {
     },
     {
       platform: 'LinkedIn',
-      value: 'linkedin.com/in/hashim',
+      value: 'linkedin.com/in/syed-hashim-3324a3325',
       icon: '💼',
-      link: 'www.linkedin.com/in/syed-hashim-3324a3325',
+      link: 'https://www.linkedin.com/in/syed-hashim-3324a3325',
+    },
+    {
+      platform: 'GitHub',
+      value: 'github.com/hashim-labs',
+      icon: '💻',
+      link: 'https://github.com/hashim-labs',
     },
     {
       platform: 'Facebook',
-      value: 'facebook.com/hashim',
+      value: 'facebook.com/profile.php?id=100079640409737',
       icon: '👥',
-      link: 'https://facebook.com/hashim',
+      link: 'https://www.facebook.com/profile.php?id=100079640409737',
     },
     {
       platform: 'Instagram',
@@ -337,8 +343,8 @@ const Hero = () => {
                   <motion.a
                     key={index}
                     href={contact.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    target={contact.link.startsWith('http') ? '_blank' : undefined}
+                    rel={contact.link.startsWith('http') ? 'noopener noreferrer' : undefined}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
