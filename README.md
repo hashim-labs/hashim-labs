@@ -15,26 +15,6 @@ Flask Monitoring Project: A tool for real-time system monitoring.<br>
 
 I'm always eager to learn and explore new technologies. Feel free to ask me about my journey in web development, my favorite tech stack, or how I approach challenges in my projects.
  
-## Portfolio Lead Storage
-
-The contact form saves inquiries to Neon Postgres and the private admin area is available at `/control-panel`.
-
-Create `.env.local` from `.env.example` and set:
-
-```env
-DATABASE_URL="your Neon connection string"
-ADMIN_USERNAME="admin"
-ADMIN_PASSWORD="a temporary password with at least 12 characters"
-ADMIN_SESSION_SECRET="a random value with at least 32 characters"
-GEMINI_API_KEY="your Gemini API key"
-```
-
-The profile bot demo is available from the AI section's `View Demo` button. Greetings are answered locally without Gemini or database usage. After a visitor provides verified contact and project details, Gemini answers from `public/cv/hashim_profile.json` and classifies whether the conversation is a genuine lead. Only genuine leads are saved in the private control panel. To connect the same bot to Meta WhatsApp Cloud API, configure `WHATSAPP_VERIFY_TOKEN`, `WHATSAPP_PHONE_NUMBER_ID`, and `WHATSAPP_ACCESS_TOKEN`, then register `/api/whatsapp/webhook` as the Meta webhook URL. Credentials are intentionally not included in source control.
-
-The first admin login creates the account with a bcrypt password hash. Change the temporary password immediately from the control panel. Never commit `.env.local` or share the database connection string. Rotate the Neon password if it has been exposed.
- <h1 align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Righteous&size=35&center=true&vCenter=true&width=500&height=70&duration=4000&lines=Let's+Be+Creative" alt="Typing SVG">
-</h1><br>
 
 <div align="center">
   <img src="https://readme-typing-svg.herokuapp.com?font=Righteous&size=35&center=true&vCenter=true&width=500&height=70&duration=4000&lines=Any+Questions+❓" alt="Typing SVG">
