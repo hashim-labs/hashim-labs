@@ -4,26 +4,32 @@
 
 
 
-# 💫 About Me:
-I'm a passionate MERN Stack Developer with a love for building scalable, user-friendly web applications. I thrive on solving complex problems and turning ideas into reality through code. Currently, I'm working on:<br>
+## 💫 About Me
 
-Online Help Desk System: A centralized platform for managing campus service requests.<br>
+I am a results-driven **Full-Stack Software Engineer** specializing in building scalable, production-grade applications across web, mobile, and AI-powered systems.  
+I focus on delivering efficient, secure, and user-centric solutions using modern technologies and clean architecture principles.<br><br>
 
-Real-time Data Management: A Python application with PostgreSQL for efficient data handling.<br>
+Currently, I am actively working on:<br>
 
-Flask Monitoring Project: A tool for real-time system monitoring.<br>
+- **AgriBiss** — A full-stack agricultural management platform featuring GIS-based field mapping, satellite imagery analysis (NDVI/NDMI via Google Earth Engine), and role-based dashboards for farmers, agronomists, researchers, and admins.<br><br>
 
-I'm always eager to learn and explore new technologies. Feel free to ask me about my journey in web development, my favorite tech stack, or how I approach challenges in my projects.
- 
+- **Agri-Cross** — A React Native (Expo) mobile application for real-time crop monitoring, deployed on the Play Store.<br><br>
 
-<div align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Righteous&size=35&center=true&vCenter=true&width=500&height=70&duration=4000&lines=Any+Questions+❓" alt="Typing SVG">
- 
-</div>
+- **AgentOS** — A multi-tenant AI Agent Management Platform (Agent-as-a-Service) with modular LLM runtime and ongoing development of local voice cloning and TTS capabilities.<br><br>
 
-- What drives you to code beyond just solving problems?
-- How do you stay updated with the latest in MERN stack development?
-- What innovative project are you most proud of?
+- **Leadmate** — An AI-powered sales assistant designed to automate lead generation and improve conversion workflows.<br><br>
+
+I am passionate about building intelligent systems, solving real-world problems, and continuously exploring advancements in **AI, cloud computing, and full-stack development**.<br><br>
+
+---
+
+### 💡 What Drives Me
+
+- Building impactful and scalable software products  
+- Solving complex engineering and system design problems  
+- Exploring AI, automation, and modern cloud architectures  
+- Turning ideas into real, production-ready applications  
+
 
 ---
 
