@@ -4,46 +4,32 @@
 
 
 
-# 💫 About Me:
-I'm a passionate MERN Stack Developer with a love for building scalable, user-friendly web applications. I thrive on solving complex problems and turning ideas into reality through code. Currently, I'm working on:<br>
+## 💫 About Me
 
-Online Help Desk System: A centralized platform for managing campus service requests.<br>
+I am a results-driven **Full-Stack Software Engineer** specializing in building scalable, production-grade applications across web, mobile, and AI-powered systems.  
+I focus on delivering efficient, secure, and user-centric solutions using modern technologies and clean architecture principles.<br><br>
 
-Real-time Data Management: A Python application with PostgreSQL for efficient data handling.<br>
+Currently, I am actively working on:<br>
 
-Flask Monitoring Project: A tool for real-time system monitoring.<br>
+- **AgriBiss** — A full-stack agricultural management platform featuring GIS-based field mapping, satellite imagery analysis (NDVI/NDMI via Google Earth Engine), and role-based dashboards for farmers, agronomists, researchers, and admins.<br><br>
 
-I'm always eager to learn and explore new technologies. Feel free to ask me about my journey in web development, my favorite tech stack, or how I approach challenges in my projects.
- 
-## Portfolio Lead Storage
+- **Agri-Cross** — A React Native (Expo) mobile application for real-time crop monitoring, deployed on the Play Store.<br><br>
 
-The contact form saves inquiries to Neon Postgres and the private admin area is available at `/control-panel`.
+- **AgentOS** — A multi-tenant AI Agent Management Platform (Agent-as-a-Service) with modular LLM runtime and ongoing development of local voice cloning and TTS capabilities.<br><br>
 
-Create `.env.local` from `.env.example` and set:
+- **Leadmate** — An AI-powered sales assistant designed to automate lead generation and improve conversion workflows.<br><br>
 
-```env
-DATABASE_URL="your Neon connection string"
-ADMIN_USERNAME="admin"
-ADMIN_PASSWORD="a temporary password with at least 12 characters"
-ADMIN_SESSION_SECRET="a random value with at least 32 characters"
-GEMINI_API_KEY="your Gemini API key"
-```
+I am passionate about building intelligent systems, solving real-world problems, and continuously exploring advancements in **AI, cloud computing, and full-stack development**.<br><br>
 
-The profile bot demo is available from the AI section's `View Demo` button. Greetings are answered locally without Gemini or database usage. After a visitor provides verified contact and project details, Gemini answers from `public/cv/hashim_profile.json` and classifies whether the conversation is a genuine lead. Only genuine leads are saved in the private control panel. To connect the same bot to Meta WhatsApp Cloud API, configure `WHATSAPP_VERIFY_TOKEN`, `WHATSAPP_PHONE_NUMBER_ID`, and `WHATSAPP_ACCESS_TOKEN`, then register `/api/whatsapp/webhook` as the Meta webhook URL. Credentials are intentionally not included in source control.
+---
 
-The first admin login creates the account with a bcrypt password hash. Change the temporary password immediately from the control panel. Never commit `.env.local` or share the database connection string. Rotate the Neon password if it has been exposed.
- <h1 align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Righteous&size=35&center=true&vCenter=true&width=500&height=70&duration=4000&lines=Let's+Be+Creative" alt="Typing SVG">
-</h1><br>
+### 💡 What Drives Me
 
-<div align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Righteous&size=35&center=true&vCenter=true&width=500&height=70&duration=4000&lines=Any+Questions+❓" alt="Typing SVG">
- 
-</div>
+- Building impactful and scalable software products  
+- Solving complex engineering and system design problems  
+- Exploring AI, automation, and modern cloud architectures  
+- Turning ideas into real, production-ready applications  
 
-- What drives you to code beyond just solving problems?
-- How do you stay updated with the latest in MERN stack development?
-- What innovative project are you most proud of?
 
 ---
 
