@@ -180,6 +180,11 @@ export default function Home() {
         <ServicesSection />
         <ProjectsShowcase />
         <Contact />
+        <footer className="px-5 pb-10 pt-4 text-center sm:px-8">
+          <blockquote className="mx-auto max-w-2xl text-base italic leading-7 text-slate-300 sm:text-lg">
+            &ldquo;Build with purpose, think beyond limits, and let technology create what once seemed impossible.&rdquo;
+          </blockquote>
+        </footer>
       </motion.div>
 
       {/* Grid Overlay */}

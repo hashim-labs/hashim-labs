@@ -131,7 +131,7 @@ const Hero = () => {
     <>
       <section
         ref={sectionRef}
-        className="relative w-full min-h-screen px-4 sm:px-8 md:px-12 lg:px-32 py-16 lg:py-0 flex flex-col-reverse lg:flex-row items-center justify-between overflow-hidden"
+        className="relative w-full min-h-screen px-4 pt-28 pb-16 sm:px-8 sm:pt-24 md:px-12 lg:px-32 lg:py-0 flex flex-col-reverse lg:flex-row items-center justify-between overflow-hidden"
       >
         {/* Left Content */}
         <div className="w-full lg:w-1/2 z-10 flex flex-col gap-8 lg:gap-10 text-center lg:text-left">
