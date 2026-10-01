@@ -33,7 +33,7 @@ export function ExpandableCardDemo() {
         <div className="mb-10 flex flex-col justify-between gap-5 border-b border-white/10 pb-8 md:flex-row md:items-end">
           <div>
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.24em] text-emerald-300">Client perspective · {reviews.length} endorsements</p>
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-5xl">Good work should leave a signal.</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-5xl">What people I’ve worked with say.</h2>
           </div>
           <p className="max-w-sm text-sm leading-6 text-slate-400 md:text-right">A few words from people who trusted me with meaningful product and engineering challenges.</p>
         </div>

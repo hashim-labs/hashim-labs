@@ -16,27 +16,27 @@ const services = [
   {
     icon: <Laptop size={28} />,
     title: 'Software Engineering',
-    desc: 'Designing and developing scalable, efficient, and maintainable applications.',
+    desc: 'I turn ideas into working apps, from the first screen to the backend.',
   },
   {
     icon: <Cpu size={28} />,
     title: 'Autonomous Agents',
-    desc: 'Custom-built AI agents that think, act, and learn on your behalf.',
+    desc: 'I build AI assistants that help with the tasks you need to get done.',
   },
   {
     icon: <BrainCircuit size={28} />,
-    title: 'AI Strategy & Consulting',
-    desc: 'Aligning AI innovation with business goals using strategic intelligence.',
+    title: 'Figuring out where AI fits',
+    desc: 'We can work out where AI would help your project and where simpler tools would do.',
   },
   {
     icon: <Bot size={28} />,
     title: 'AI-Powered Products',
-    desc: 'Building futuristic, user-friendly, and scalable AI-driven tools.',
+    desc: 'Useful AI tools with a clear purpose and an interface that makes sense.',
   },
   {
     icon: <Code2 size={28} />,
     title: 'MLOps & Deployment',
-    desc: 'Managing the full AI lifecycle: training, optimization, and cloud deployment.',
+    desc: 'Connecting models to apps and getting them running in the cloud.',
   },
 ];
 
@@ -120,10 +120,10 @@ export default function ServicesSection() {
       {/* Section Heading */}
       <div className="text-center mb-12">
         <h2 className="text-3xl sm:text-4xl font-bold">
-          Services by <span className="text-cyan-500">Hashim</span>
+          Built by <span className="text-cyan-500">Hashim</span>
         </h2>
         <p className="mt-3 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-base sm:text-lg">
-          Professional Software & AI Engineer — crafting intelligent software and AI-powered solutions for the modern world.
+          I’m Hashim. I enjoy building useful software, trying new ideas, and solving the problems in between.
         </p>
       </div>
 

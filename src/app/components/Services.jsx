@@ -11,17 +11,17 @@ const services = [
   {
     icon: <BrainCircuit size={28} />,
     title: 'Software Engineering',
-    desc: 'Full-stack development expertise in React, Next.js, ASP.NET Core, and scalable backend systems.',
+    desc: 'I build the screens, APIs, and backend that turn your idea into a working app.',
   },
   {
     icon: <Bot size={28} />,
     title: 'Agentic Workflows',
-    desc: 'I specialize in creating agentic systems that connect APIs, automate tasks, and enhance productivity.',
+    desc: 'I connect your tools and automate the repetitive bits of your workflow.',
   },
   {
     icon: <Code2 size={28} />,
     title: 'MLOps & Deployment',
-    desc: 'Experience in training, optimizing, and deploying ML models with seamless cloud integration.',
+    desc: 'I help get models and apps running in the cloud, with updates that are easier to manage.',
   },
 ];
 
@@ -50,7 +50,7 @@ export default function ServicesSection() {
         className="max-w-7xl mx-auto text-white"
       >
         <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center text-neon drop-shadow-[0_0_0.3rem_#00ffe0]">
-          What I Do
+          How I can help
         </h2>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">

@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
   --background: #ffffff;
@@ -90,3 +91,9 @@ body {
     }
   }
 }
+
+/* Preserve the original purple/cyan identity, with accessible navigation. */
+html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+body { background: #0b0815; color: #ededed; color-scheme: dark; font-family: var(--font-geist-sans), Arial, sans-serif; }
+:focus-visible { outline: 2px solid #67e8f9; outline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }

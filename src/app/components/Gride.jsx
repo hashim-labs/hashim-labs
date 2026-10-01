@@ -21,43 +21,43 @@ import {
 export function FeaturesSectionDemo() {
   const features = [
     {
-      title: "AI-Powered Code Generation",
-      description: "Generate production-ready code with advanced AI models that understand context and best practices.",
+      title: "Building with AI",
+      description: "I use AI tools to explore ideas and build faster, with a careful look at the code they produce.",
       skeleton: <SkeletonOne />,
       className: "col-span-1 lg:col-span-4 border-b lg:border-r dark:border-neutral-800",
       icon: <IconCode className="h-6 w-6 text-blue-500" />
     },
     {
-      title: "Neural Network Deployment",
-      description: "Seamlessly deploy trained models to production with automated scaling and monitoring.",
+      title: "Putting models to work",
+      description: "I help connect models to real apps so people can use them.",
       skeleton: <SkeletonTwo />,
       className: "border-b col-span-1 lg:col-span-2 dark:border-neutral-800",
       icon: <IconBrain className="h-6 w-6 text-purple-500" />
     },
     {
-      title: "ML Pipeline Automation",
-      description: "End-to-end automation of machine learning workflows from data ingestion to model serving.",
+      title: "Less repetitive work",
+      description: "I connect data, tools, and models into workflows that save time.",
       skeleton: <SkeletonThree />,
       className: "col-span-1 lg:col-span-3 lg:border-r dark:border-neutral-800",
       icon: <IconGitBranch className="h-6 w-6 text-green-500" />
     },
     {
-      title: "Global AI Infrastructure",
-      description: "Deploy your AI models across global data centers with latency-based routing and automatic failover.",
+      title: "Getting your app online",
+      description: "I work with Docker and cloud services to get apps running and keep deployments manageable.",
       skeleton: <SkeletonFour />,
       className: "col-span-1 lg:col-span-3 border-b lg:border-none",
       icon: <IconCloud className="h-6 w-6 text-cyan-500" />
     },
     {
-      title: "Performance Analytics",
-      description: "Real-time monitoring and analytics for your AI models with detailed performance metrics.",
+      title: "Knowing what’s happening",
+      description: "I build dashboards and monitoring tools that make it easier to see what needs attention.",
       skeleton: <SkeletonFive />,
       className: "col-span-1 lg:col-span-3 border-b lg:border-r dark:border-neutral-800",
       icon: <IconChartLine className="h-6 w-6 text-orange-500" />
     },
     {
-      title: "Security & Compliance",
-      description: "Enterprise-grade security with SOC 2 compliance, encryption, and access controls for your AI systems.",
+      title: "Taking care of your data",
+      description: "Authentication, role-based access, and careful handling of application data.",
       skeleton: <SkeletonSix />,
       className: "col-span-1 lg:col-span-3 dark:border-neutral-800",
       icon: <IconShield className="h-6 w-6 text-red-500" />
@@ -65,7 +65,7 @@ export function FeaturesSectionDemo() {
   ];
   
   return (
-    <div className="relative z-20 py-10 lg:py-40 max-w-7xl mx-auto">
+    <div className="relative z-20 py-14 lg:py-20 max-w-7xl mx-auto">
       <div className="px-8">
         <motion.h4
           initial={{ opacity: 0, y: 20 }}
@@ -73,7 +73,7 @@ export function FeaturesSectionDemo() {
           transition={{ duration: 0.5 }}
           className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white"
         >
-          AI Engineering Platform
+          The bits I enjoy building
         </motion.h4>
 
         <motion.p
@@ -82,8 +82,7 @@ export function FeaturesSectionDemo() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="text-sm lg:text-base max-w-2xl my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300"
         >
-          Everything you need to build, deploy, and scale AI applications. From neural networks to production pipelines, 
-          our platform handles the infrastructure so you can focus on innovation.
+          Every project is different. These are a few of the things I can bring to yours.
         </motion.p>
       </div>
       
@@ -91,7 +90,7 @@ export function FeaturesSectionDemo() {
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
-        className="relative mt-16"
+        className="relative mt-9"
       >
         <div className="grid grid-cols-1 lg:grid-cols-6 xl:border rounded-2xl dark:border-neutral-800 bg-white/50 dark:bg-neutral-900/50 backdrop-blur-sm">
           {features.map((feature, index) => (
@@ -217,7 +216,7 @@ export const SkeletonThree = () => {
   
   return (
     <a
-      href="https://youtu.be/demo"
+      href="#projects"
       target="_blank"
       rel="noopener noreferrer"
       className="relative flex flex-col items-center justify-center h-48 group"
@@ -286,7 +285,7 @@ export const SkeletonSix = () => {
           Enterprise Security
         </div>
         <div className="text-xs text-red-500 dark:text-red-400 mt-2">
-          SOC 2 • GDPR • HIPAA
+          Authentication · Access control
         </div>
       </div>
     </div>

@@ -1,8 +1,7 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef, useEffect } from 'react';
-import Lenis from '@studio-freight/lenis';
+import { motion } from 'framer-motion';
+import { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import AIHead from './components/3D/AIHead';
@@ -15,24 +14,10 @@ import { ExpandableCardDemo } from './components/Testimonials';
 import Contact from './components/Contact';
 
 export default function Home() {
-  const parallaxRef = useRef(null);
-  const { scrollYProgress } = useScroll({ target: parallaxRef });
-  const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
-
-  // Initialize Lenis for smooth scroll
-  useEffect(() => {
-    const lenis = new Lenis();
-
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-    return () => lenis.destroy();
-  }, []);
 
   // Particle.js config
+  // Particle.js config is local to its setup effect so it does not restart on renders.
+  useEffect(() => {
   const particlesConfig = {
     particles: {
       number: { value: 80, density: { enable: true, value_area: 800 } },
@@ -74,7 +59,6 @@ export default function Home() {
   };
 
   // Dynamically load particles.js
-  useEffect(() => {
     const loadParticles = async () => {
       if (typeof window !== 'undefined' && window.particlesJS) {
         window.particlesJS('particles-js', particlesConfig);
@@ -167,7 +151,7 @@ export default function Home() {
       />
 
       {/* Parallax Animated Wrapper */}
-      <motion.div ref={parallaxRef} style={{ y }}>
+      <div>
         <Navbar />
         <Hero />
         <AboutSection />
@@ -182,10 +166,10 @@ export default function Home() {
         <Contact />
         <footer className="px-5 pb-10 pt-4 text-center sm:px-8">
           <blockquote className="mx-auto max-w-2xl text-base italic leading-7 text-slate-300 sm:text-lg">
-            &ldquo;Build with purpose, think beyond limits, and let technology create what once seemed impossible.&rdquo;
+            &ldquo;Have something in mind? I&apos;d love to hear about it.&rdquo;
           </blockquote>
         </footer>
-      </motion.div>
+      </div>
 
       {/* Grid Overlay */}
       <div className="absolute inset-0 overflow-hidden z-0 pointer-events-none">

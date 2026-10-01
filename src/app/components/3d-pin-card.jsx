@@ -19,8 +19,9 @@ export default function ProjectsShowcase() {
     return () => window.removeEventListener('resize', updateVisibleCount);
   }, []);
 
-  const move = (direction) => setIndex((current) => (current + direction + projects.length) % projects.length);
-  const visibleProjects = Array.from({ length: visibleCount }, (_, offset) => projects[(index + offset) % projects.length]);
+  const featuredProjects = projects.filter(project => project.featured !== false);
+  const move = (direction) => setIndex((current) => (current + direction + featuredProjects.length) % featuredProjects.length);
+  const visibleProjects = Array.from({ length: visibleCount }, (_, offset) => featuredProjects[(index + offset) % featuredProjects.length]);
 
   return (
     <section id="projects" className="relative px-5 py-20 sm:px-8 lg:px-12">
@@ -28,7 +29,7 @@ export default function ProjectsShowcase() {
         <div className="mb-10 flex flex-col justify-between gap-6 border-b border-white/10 pb-8 md:flex-row md:items-end">
           <div>
             <p className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.24em] text-cyan-300"><Layers3 className="h-4 w-4" /> Selected work</p>
-            <h2 className="max-w-xl text-3xl font-bold tracking-tight text-white sm:text-5xl">Products built to make complex work feel simple.</h2>
+            <h2 className="max-w-xl text-3xl font-bold tracking-tight text-white sm:text-5xl">Some things I’ve built.</h2>
           </div>
           <p className="max-w-sm text-sm leading-6 text-slate-400 md:text-right">A selection of data platforms, business tools, and intelligent products built from idea to production.</p>
         </div>
@@ -38,22 +39,24 @@ export default function ProjectsShowcase() {
             {visibleProjects.map((project, offset) => (
                 <motion.article id={`project-${project.slug}`} key={`${project.title}-${index}-${offset}`} initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -18 }} transition={{ duration: 0.35, delay: offset * 0.06 }} className="group scroll-mt-24 overflow-hidden rounded-2xl border border-white/10 bg-slate-950/70 shadow-2xl shadow-black/20">
                 <Link href={`/projects/${project.slug}`} className="relative block aspect-[16/10] overflow-hidden bg-slate-900" aria-label={`View full details for ${project.title}`}>
-                  <Image src={project.img} alt={project.title} fill className="object-cover transition duration-700 group-hover:scale-105" />
+                  <Image src={project.img} alt={`${project.title}${project.artwork ? ' concept illustration' : ' project preview'}`} fill sizes="(max-width:768px) 90vw, (max-width:1100px) 45vw, 30vw" className="object-cover transition duration-700 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/10 to-transparent" />
                   <span className="absolute left-4 top-4 rounded-full border border-white/15 bg-slate-950/70 px-3 py-1 text-[11px] font-medium text-cyan-100 backdrop-blur">{project.category}</span>
+                  {project.artwork && <span className="absolute bottom-3 right-3 rounded bg-slate-950/70 px-2 py-1 text-[9px] uppercase tracking-widest text-slate-300">Concept artwork</span>}
                 </Link>
                 <Link href={`/projects/${project.slug}`} className="block p-5 sm:p-6" aria-label={`View full details for ${project.title}`}>
                   <div className="flex items-start justify-between gap-4"><h3 className="text-xl font-semibold text-white">{project.title}</h3><ArrowUpRight className="mt-1 h-5 w-5 shrink-0 text-cyan-300 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" /></div>
                   <p className="mt-3 min-h-[4.5rem] text-sm leading-6 text-slate-400">{project.desc}</p>
                   <div className="mt-5 flex flex-wrap gap-2 border-t border-white/10 pt-4">{project.stack.map((item) => <span key={item} className="rounded-md bg-white/[0.06] px-2.5 py-1 text-xs text-slate-300">{item}</span>)}</div>
                 </Link>
+                {project.github && <a href={project.github} target="_blank" rel="noreferrer" className="mx-5 mb-5 flex items-center gap-2 border-t border-white/10 pt-3 text-xs text-cyan-200 sm:mx-6">View source on GitHub <ArrowUpRight size={14}/></a>}
               </motion.article>
             ))}
           </AnimatePresence>
         </div>
 
         <div className="mt-8 flex items-center justify-between">
-          <div className="flex gap-2" aria-label="Project carousel position">{projects.map((project, projectIndex) => <button key={project.title} onClick={() => setIndex(projectIndex)} aria-label={`Show ${project.title}`} className={`h-1.5 rounded-full transition-all ${projectIndex === index ? 'w-8 bg-cyan-300' : 'w-2 bg-white/20'}`} />)}</div>
+          <div className="flex gap-2" aria-label="Project carousel position">{featuredProjects.map((project, projectIndex) => <button key={project.title} onClick={() => setIndex(projectIndex)} aria-label={`Show ${project.title}`} className={`h-1.5 rounded-full transition-all ${projectIndex === index ? 'w-8 bg-cyan-300' : 'w-2 bg-white/20'}`} />)}</div>
           <div className="flex gap-2"><button onClick={() => move(-1)} aria-label="Previous projects" className="rounded-full border border-white/15 p-2.5 text-slate-300 transition hover:border-cyan-300 hover:text-cyan-300"><ChevronLeft className="h-5 w-5" /></button><button onClick={() => move(1)} aria-label="Next projects" className="rounded-full border border-white/15 p-2.5 text-slate-300 transition hover:border-cyan-300 hover:text-cyan-300"><ChevronRight className="h-5 w-5" /></button></div>
         </div>
       </div>

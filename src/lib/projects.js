@@ -1,11 +1,13 @@
 export const projects = [
   {
     slug: 'leadmate-ai-sales-assistant',
+    group: 'AI & automation',
+    kind: 'Collaboration',
     title: 'Leadmate AI Sales Assistant',
     category: 'AI Sales Platform',
     desc: 'An AI-powered sales assistant that helps teams organize, qualify, and act on leads through automated workflows.',
-    img: '/images/ecommerce.png',
-    stack: ['Next.js', 'FastAPI', 'LLM APIs'],
+    img: '/images/leadmate-preview.svg',
+    stack: ['Next.js', 'React', 'Redux'],
     overview: 'Leadmate is an AI-powered sales assistant designed to help sales teams turn scattered lead activity into a clearer, more actionable workflow. The product combines structured lead management with intelligent, automated interactions.',
     role: 'Full-stack developer and product engineering collaborator',
     features: ['Lead organization and qualification', 'AI-assisted sales interactions', 'Action-focused workflow design', 'Scalable API architecture'],
@@ -14,6 +16,9 @@ export const projects = [
   },
   {
     slug: 'health-insurance-system',
+    group: 'Web & platforms',
+    kind: 'Public repository',
+    github: 'https://github.com/hashim-labs/Health-Insurance-Management-System-Asp.Net-Core-MVC-',
     title: 'Health Insurance System',
     category: 'Enterprise Software',
     desc: 'Role-based dashboards for managing employees, patients, administrators, and policy assignments.',
@@ -27,6 +32,9 @@ export const projects = [
   },
   {
     slug: 'hotel-management-system',
+    group: 'Web & platforms',
+    kind: 'Public backend',
+    github: 'https://github.com/hashim-labs/-H-Management-backend',
     title: 'Hotel Management System',
     category: 'Full-stack Web App',
     desc: 'A complete operations platform for room bookings, employees, salaries, and role management.',
@@ -40,6 +48,7 @@ export const projects = [
   },
   {
     slug: 'e-commerce-platform',
+    featured: false,
     title: 'E-Commerce Platform',
     category: 'Commerce Experience',
     desc: 'A polished shopping experience with authentication, product discovery, and Stripe payments.',
@@ -53,10 +62,13 @@ export const projects = [
   },
   {
     slug: 'agentos',
+    artwork: true,
+    group: 'AI & automation',
+    kind: 'Independent project',
     title: 'AgentOS',
     category: 'Agentic AI Platform',
     desc: 'A multi-tenant platform for configuring, managing, and running AI agents with flexible model and voice integrations.',
-    img: '/images/agentos.png',
+    img: '/images/agentos-concept.webp',
     stack: ['Next.js', 'FastAPI', 'AI Agents'],
     overview: 'AgentOS is a multi-tenant AI Agent Management Platform built to make agent configuration, runtime selection, and voice-enabled workflows easier to manage.',
     role: 'AI platform developer',
@@ -65,6 +77,36 @@ export const projects = [
     outcome: 'A flexible platform direction for teams that want to configure and operate AI agents with room for evolving model and voice capabilities.',
   },
 ];
+
+projects.unshift(
+  {
+    slug: 'khairagri', title: 'KhairAgri', category: 'Agriculture & GIS', group: 'Web & platforms', kind: 'Client project',
+    desc: 'A field management platform connecting satellite imagery, sensor data, and role-based agricultural workflows.',
+    img: '/images/khairagri-concept.webp', artwork: true, stack: ['Next.js', 'FastAPI', 'Earth Engine'], role: 'Full-stack lead developer',
+    overview: 'KhairAgri brings field mapping, satellite analysis, soil sensors, weather monitoring, and crop management into a shared platform for farmers, agronomists, managers, researchers, and administrators.',
+    features: ['GIS field mapping', 'NDVI and NDMI satellite analysis', 'Soil sensor and weather monitoring', 'Five role-based dashboards'],
+    challenges: 'Integrating geospatial data, asynchronous satellite processing, and sensor readings into understandable workflows with clear loading and processing states.',
+    outcome: 'A central workspace for agricultural teams to review field conditions and coordinate crop management.',
+  },
+  {
+    slug: 'crop2x-mobile', title: 'Crop2X Mobile', category: 'Field Monitoring', group: 'Mobile', kind: 'Client project',
+    desc: 'A mobile companion for crop monitoring, bringing agricultural data and field workflows into an Expo application.',
+    img: '/images/Cropsmart.png', stack: ['React Native', 'Expo'], role: 'Mobile application developer',
+    overview: 'A separate mobile application developed for AG5 under Crop2X. The work includes additional modules, data features, and performance improvements at RCAI NED.',
+    features: ['Mobile crop monitoring', 'Agricultural data access', 'Cross-platform application', 'Module and performance improvements'],
+    challenges: 'Making field data approachable on smaller screens while keeping navigation and data-heavy modules responsive.',
+    outcome: 'A mobile application published under the Crop2X developer account, giving users access to crop monitoring workflows.',
+  },
+);
+projects.push({
+  slug: 'watchhub', title: 'WatchHub', category: 'Flutter Application', group: 'Mobile', kind: 'Public repository',
+  github: 'https://github.com/hashim-labs/WatchHub', img: '/images/watchhub-preview.svg', stack: ['Flutter', 'Firebase', 'Provider'],
+  desc: 'A Flutter project combining Firebase authentication and data services with animated interfaces and local preferences.',
+  role: 'Application developer', overview: 'WatchHub is a public Flutter application. Its dependency manifest includes Firebase Auth, Firebase Realtime Database, Provider, shared preferences, and Lottie animations.',
+  features: ['Flutter interface', 'Firebase integrations', 'Provider state management', 'Animation and local preference tooling'],
+  challenges: 'Bringing application state, authentication services, and interface animation together within a mobile codebase.',
+  outcome: 'A publicly available Flutter codebase demonstrating mobile application tooling and service integration.',
+});
 
 export function getProject(slug) {
   return projects.find((project) => project.slug === slug);

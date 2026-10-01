@@ -4,26 +4,14 @@ import { useState, useEffect, useRef } from 'react';
 import SplineCanvas from './SplineCanvas';
 
 const features = [
-  { title: 'Software Solutions', description: 'Robust and scalable applications tailored to business needs' },
-  { title: 'Hyper Automation', description: 'End-to-end process automation with AI decision points' },
-  { title: 'Natural Reasoning', description: 'Human-like logical processing at machine speed' },
-  { title: 'Task Planning', description: 'Dynamic workflow generation based on objectives' },
-  { title: 'Real-Time Feedback', description: 'Continuous learning from interactions and outcomes' },
-  { title: 'Memory & Context', description: 'Persistent memory for personalized experiences' },
-  { title: 'Multi-Modal I/O', description: 'Seamless text, voice, and visual integration' },
+  { title: 'Web apps', description: 'From a simple website to a full app, I can help bring your idea to the browser.' },
+  { title: 'Mobile apps', description: 'Useful apps that people can take with them, built with React Native or Flutter.' },
+  { title: 'AI & agents', description: 'Chatbots, assistants, and AI tools built around what you actually need.' },
+  { title: 'Automation', description: 'Let the software handle repetitive tasks so you can focus on your work.' },
+  { title: 'APIs & backends', description: 'The behind-the-scenes pieces that keep your app and data connected.' },
+  { title: 'Cloud & DevOps', description: 'Getting your project online and making updates easier to ship.' },
 ];
-
-const floatingMessages = [
-  "Why choose me?",
-  "24/7 AI Agents",
-  "Built with AI",
-  "Multi-modal I/O",
-  "Reason like humans",
-  "Real-time feedback",
-  "Custom AI agents",
-  "Hyper Automation",
-  "Software Solutions",
-];
+const floatingMessages = ['Got an idea?', 'Let’s build it', 'Web apps', 'Mobile apps', 'AI assistants', 'Less busywork', 'APIs & backends', 'Cloud deployments'];
 
 const Hero = () => {
   const [activeFeature, setActiveFeature] = useState(0);
@@ -58,6 +46,7 @@ const Hero = () => {
 
   // Close modal when clicking outside
   useEffect(() => {
+    const handleEscape = (event) => { if (event.key === 'Escape') setIsContactModalOpen(false); };
     const handleClickOutside = (event) => {
       if (modalRef.current && !modalRef.current.contains(event.target)) {
         setIsContactModalOpen(false);
@@ -66,12 +55,14 @@ const Hero = () => {
 
     if (isContactModalOpen) {
       document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('keydown', handleEscape);
       document.body.style.overflow = 'hidden';
     }
 
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
-      document.body.style.overflow = 'unset';
+      document.removeEventListener('keydown', handleEscape);
+      document.body.style.overflow = '';
     };
   }, [isContactModalOpen]);
 
@@ -130,8 +121,9 @@ const Hero = () => {
   return (
     <>
       <section
+        id="hero"
         ref={sectionRef}
-        className="relative w-full min-h-screen px-4 pt-28 pb-16 sm:px-8 sm:pt-24 md:px-12 lg:px-32 lg:py-0 flex flex-col-reverse lg:flex-row items-center justify-between overflow-hidden"
+        className="relative w-full min-h-screen px-4 pt-28 pb-16 sm:px-8 sm:pt-24 md:px-12 lg:px-32 lg:pt-28 lg:pb-16 flex flex-col-reverse lg:flex-row items-center justify-between overflow-hidden"
       >
         {/* Left Content */}
         <div className="w-full lg:w-1/2 z-10 flex flex-col gap-8 lg:gap-10 text-center lg:text-left">
@@ -145,7 +137,7 @@ const Hero = () => {
           >
             <div className="w-3 h-3 rounded-full bg-cyan-400 animate-pulse" />
             <span className="text-sm md:text-base font-mono text-cyan-400">
-              Hashim — Software & Agentic AI Engineer
+              Hi, I’m Hashim · Software & AI Engineer
             </span>
           </motion.div>
 
@@ -157,10 +149,10 @@ const Hero = () => {
             className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight"
           >
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">
-              Autonomous
+              Your idea.
             </span>{' '}
             <br />
-            AI Systems
+            Let’s build it.
           </motion.h1>
 
           {/* Description */}
@@ -170,7 +162,7 @@ const Hero = () => {
             transition={{ delay: 0.4, duration: 0.6 }}
             className="text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl max-w-lg mx-auto lg:mx-0"
           >
-            Engineering future-ready software alongside AI agents that can learn, adapt, and act autonomously.
+            I build websites, apps, and AI tools that make life a little easier. Whether you’re starting something new or figuring out a tricky problem, let’s work it out together.
           </motion.p>
 
           {/* Feature Grid */}
@@ -234,13 +226,14 @@ const Hero = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
             >
-              View Projects
+              See my work
             </motion.a>
             
+            <a href="/cv" className="px-6 py-3 border border-cyan-300/40 text-cyan-200 font-medium rounded-lg hover:bg-cyan-300/10">Preview my CV</a>
             {/* Resume Download Button */}
             <motion.a
-              href="/cv/resume.pdf"
-              download="Hashim_Resume.pdf"
+              href="/Syed_Hashim_ATS_CV.pdf"
+              download="Hashim_Resume_ATS.pdf"
               className="px-6 py-3 bg-gray-800 dark:bg-gray-700 text-white font-medium rounded-lg shadow-lg flex items-center gap-2"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
@@ -248,8 +241,9 @@ const Hero = () => {
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
-              Download Resume
+              Download ATS CV
             </motion.a>
+            <motion.a href="/Hashim%20Resume.pdf" download="Syed_Hashim_Non_ATS_CV.pdf" className="px-6 py-3 border border-cyan-300/30 bg-purple-950/30 text-white font-medium rounded-lg shadow-lg" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>Download Non-ATS CV</motion.a>
 
             {/* Contact Me Button */}
             <motion.button
@@ -258,7 +252,7 @@ const Hero = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
             >
-              Contact Me
+              Say hello
             </motion.button>
 
             <motion.button
@@ -267,7 +261,7 @@ const Hero = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
             >
-              Talk to me
+              Ask my AI assistant
             </motion.button>
           </motion.div>
         </div>
@@ -326,15 +320,16 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="sticky inset-0 bg-black/50 backdrop-blur-sm z-50 flex bottom-48 items-center justify-center p-4"
+            role="dialog" aria-modal="true" aria-label="Say hello" className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
           >
             <motion.div
               ref={modalRef}
+              data-native-scroll
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: 'spring', damping: 25 }}
-              className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl max-w-md w-full p-6"
+              className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl max-w-md w-full max-h-[90dvh] overflow-y-auto p-6"
             >
               {/* Modal Header */}
               <div className="flex justify-between items-center mb-6">
@@ -342,7 +337,7 @@ const Hero = () => {
                   Get In Touch
                 </h3>
                 <button
-                  onClick={() => setIsContactModalOpen(false)}
+                  aria-label="Close contact details" onClick={() => setIsContactModalOpen(false)}
                   className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors"
                 >
                   <svg className="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -388,7 +383,7 @@ const Hero = () => {
                 className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700"
               >
                 <p className="text-center text-gray-600 dark:text-gray-300 text-sm">
-                  Let's build something amazing together! 🚀
+                  Let&apos;s build something amazing together! 🚀
                 </p>
               </motion.div>
             </motion.div>

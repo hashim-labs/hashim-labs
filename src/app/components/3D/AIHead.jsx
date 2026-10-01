@@ -1,14 +1,16 @@
 'use client';
 import dynamic from 'next/dynamic';
-import { motion } from 'framer-motion';
-import Spline from '@splinetool/react-spline';
-import { useEffect, useState } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { useEffect, useState, useRef } from 'react';
 import ProfileBot from '../ProfileBot';
+const Spline = dynamic(() => import('../SplineScene'), { ssr: false });
 
 export default function AIHead() {
   const [isMobile, setIsMobile] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [isDemoOpen, setIsDemoOpen] = useState(false);
+  const sceneRef = useRef(null);
+  const isVisible = useInView(sceneRef, { margin: '200px' });
 
   useEffect(() => {
     const checkMobile = () => {
@@ -28,13 +30,13 @@ export default function AIHead() {
   }, []);
 
   return (
-    <section id="ai-demo" className="relative min-h-screen w-full text-white overflow-hidden flex items-center justify-center">
+    <section id="ai-demo" className="relative min-h-[620px] w-full text-white overflow-hidden flex items-center justify-center lg:min-h-[740px]">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-transparent z-0"></div>
       
       {/* Spline 3D Scene - Hidden on mobile for performance */}
-      <div className="absolute ml-[20vw] inset-0 z-5 pointer-events-auto opacity-80">
-        {!isMobile && (
+      <div ref={sceneRef} className="absolute ml-[20vw] inset-0 z-5 pointer-events-auto opacity-80">
+        {!isMobile && isVisible && (
           <Spline 
             scene="https://prod.spline.design/ziqolM0LYE1pujYG/scene.splinecode" 
             onLoad={() => setIsLoading(false)}
@@ -44,8 +46,8 @@ export default function AIHead() {
       </div>
 
       {/* Loading overlay */}
-      {isLoading && !isMobile && (
-        <div className="absolute inset-0 z-10 flex items-center justify-center bg-gray-900/80">
+      {isLoading && !isMobile && isVisible && (
+        <div className="pointer-events-none absolute right-8 top-8 z-10 flex items-center justify-center rounded-xl border border-white/10 bg-gray-900/60 p-4">
           <div className="flex flex-col items-center">
             <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mb-4"></div>
             <p className="text-gray-300">Loading AI experience...</p>
@@ -69,7 +71,7 @@ export default function AIHead() {
             transition={{ duration: 1 }}
             className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight"
           >
-            Meet Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">AI Agent</span>
+            Curious about <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">my work?</span>
           </motion.h2>
 
           <motion.p
@@ -78,7 +80,7 @@ export default function AIHead() {
             transition={{ delay: 0.4, duration: 1 }}
             className="text-lg sm:text-xl text-gray-300 leading-relaxed"
           >
-            Not just a bot — it's your autonomous teammate trained on your vision, processes, and goals.
+            Ask my AI assistant about my projects, experience, or the kind of work I can help with. It’s a quick way to get to know me.
           </motion.p>
 
           <motion.div
@@ -87,11 +89,11 @@ export default function AIHead() {
             transition={{ delay: 0.8, duration: 1 }}
             className="flex flex-col sm:flex-row gap-4 lg:gap-6 justify-center lg:justify-start"
           >
-            <button className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg font-medium hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 transform hover:-translate-y-1 shadow-lg shadow-blue-500/30">
-              Get Started
+            <button onClick={() => setIsDemoOpen(true)} className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg font-medium hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 transform hover:-translate-y-1 shadow-lg shadow-blue-500/30">
+              Ask a question
             </button>
             <button onClick={() => setIsDemoOpen(true)} className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-lg font-medium border border-white/20 hover:bg-white/20 transition-all duration-300">
-              View Demo
+              Explore my background
             </button>
           </motion.div>
 
@@ -122,7 +124,7 @@ export default function AIHead() {
             transition={{ delay: 0.7, duration: 1 }}
             className="text-2xl sm:text-3xl font-semibold text-white text-center lg:text-right"
           >
-            Built for Modern Teams
+            A few things I work with
           </motion.h3>
 
           <motion.ul className="space-y-4 lg:space-y-6">
@@ -157,9 +159,9 @@ export default function AIHead() {
               className="grid grid-cols-3 gap-4 pt-6 border-t border-white/20"
             >
               {[
-                { value: "99.9%", label: "Uptime" },
-                { value: "24/7", label: "Support" },
-                { value: "1s", label: "Response" }
+                { value: "Web", label: "Applications" },
+                { value: "AI", label: "Integration" },
+                { value: "Cloud", label: "Deployment" }
               ].map((stat, index) => (
                 <div key={index} className="text-center">
                   <div className="text-2xl font-bold text-cyan-400">{stat.value}</div>

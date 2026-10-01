@@ -27,7 +27,7 @@ export default function Contact() {
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
-		const confirmation = await confirmAction('Send this inquiry?', 'Your contact details and message will be securely saved for follow-up.', 'Send inquiry');
+		const confirmation = await confirmAction('Send this inquiry?', 'Your contact details and message will be securely saved for follow-up.', 'Send message');
 		if (!confirmation.isConfirmed) return;
 		setIsSubmitting(true);
 		showLoading('Saving your inquiry...');
@@ -36,7 +36,7 @@ export default function Contact() {
 			const result = await response.json();
 			if (!response.ok) throw new Error(result.error || 'Unable to send your inquiry.');
 			setForm({ name: '', email: '', message: '' });
-			showSuccess('Inquiry received', 'Thanks for reaching out. Your message has been securely saved.');
+			showSuccess('Message received', 'Thanks for reaching out. Your message has been securely saved.');
 		} catch (error) {
 			closeAlert();
 			showError('Message not sent', error.message || 'Unable to save your inquiry right now.');
@@ -50,7 +50,7 @@ export default function Contact() {
 			<div className="mx-auto min-w-0 max-w-7xl">
 				<div className="mb-10 border-b border-white/10 pb-8">
 					<p className="mb-3 text-xs font-semibold uppercase tracking-[0.24em] text-cyan-300">Start a conversation</p>
-					<h2 className="max-w-2xl text-3xl font-bold tracking-tight text-white sm:text-5xl">Have a product idea? Let&apos;s make it useful.</h2>
+					<h2 className="max-w-2xl text-3xl font-bold tracking-tight text-white sm:text-5xl">Got an idea? Let&apos;s talk.</h2>
 					<p className="mt-4 max-w-xl text-sm leading-6 text-slate-400">Tell me what you are building, where you are stuck, or what you want to improve. I&apos;ll get back to you as soon as possible.</p>
 				</div>
 
@@ -58,7 +58,7 @@ export default function Contact() {
 					<div className="flex min-w-0 flex-col justify-between bg-gradient-to-br from-cyan-400/15 via-slate-950/20 to-emerald-400/10 p-7 sm:p-10">
 						<div>
 							<p className="text-sm font-medium text-slate-300">Available for</p>
-							<p className="mt-3 max-w-sm text-2xl font-semibold leading-tight text-white">Full-stack products, AI agents, and thoughtful technical collaboration.</p>
+							<p className="mt-3 max-w-sm text-2xl font-semibold leading-tight text-white">Building something new, fixing what’s stuck, or joining your team.</p>
 							<div className="mt-8 flex items-center gap-2 text-sm text-slate-400"><MapPin className="h-4 w-4 text-cyan-300" /> Karachi, Pakistan</div>
 						</div>
 						<div className="mt-12 space-y-4">
@@ -80,7 +80,7 @@ export default function Contact() {
 						</div>
 						<label className="mt-5 block text-sm text-slate-300">How can I help?<textarea required name="message" value={form.message} onChange={updateField} rows={7} placeholder="Tell me a little about your project..." className="mt-2 w-full resize-y rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-white outline-none transition placeholder:text-slate-600 focus:border-cyan-300/70 focus:ring-2 focus:ring-cyan-300/10" /></label>
 						<input name="website" tabIndex="-1" autoComplete="off" aria-hidden="true" className="hidden" />
-						<div className="mt-6"><button type="submit" disabled={isSubmitting} className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-cyan-300 px-5 py-3.5 text-sm font-semibold text-slate-950 transition hover:bg-cyan-200 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"><Send className="h-4 w-4" /> {isSubmitting ? 'Sending...' : 'Send inquiry'}</button></div>
+						<div className="mt-6"><button type="submit" disabled={isSubmitting} className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-cyan-300 px-5 py-3.5 text-sm font-semibold text-slate-950 transition hover:bg-cyan-200 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"><Send className="h-4 w-4" /> {isSubmitting ? 'Sending...' : 'Send message'}</button></div>
 					</motion.form>
 				</div>
 			</div>
