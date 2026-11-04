@@ -37,4 +37,7 @@ test('text conditions, empty flows, and unsafe fields behave predictably', () =>
   assert.equal(simulateFlow([{ id: '1', type: 'condition', field: 'status', operator: 'eq', value: 'ready' }], { status: 'ready' }).stopped, false);
   assert.deepEqual(simulateFlow([], { score: 0 }).data, { score: 0 });
   assert.throws(() => simulateFlow([{ id: '1', type: 'set', field: '__proto__', value: 'x' }], {}), /safe/);
+  assert.equal(simulateFlow([{ id: '1', type: 'condition', field: 'score', value: '70' }], { score: 82 }).stopped, false);
+  assert.equal(simulateFlow([{ id: '1', type: 'condition', field: 'score', value: '0' }], { score: false }).stopped, true);
+  assert.throws(() => simulateFlow([{ id: '1', type: 'condition', field: 'score', value: '' }], {}), /threshold/);
 });

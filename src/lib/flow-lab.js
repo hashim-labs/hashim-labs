@@ -12,8 +12,10 @@ export function simulateFlow(steps, input) {
     if (stopped) { events.push({ id: step.id, status: 'skipped', message: 'An earlier condition stopped this run.' }); continue; }
     if (step.type === 'condition') {
       const actual = data[step.field];
-      const passed = step.operator === 'gte' ? actual !== null && actual !== '' && actual !== undefined && Number.isFinite(Number(actual)) && Number(actual) >= Number(step.value) : String(actual) === step.value;
-      events.push({ id: step.id, status: passed ? 'passed' : 'stopped', message: `${step.field}: ${JSON.stringify(actual) ?? 'missing'} ${step.operator === 'gte' ? '≥' : '='} ${step.value} → ${passed ? 'continue' : 'stop'}` });
+      const operator = step.operator || 'gte';
+      if (operator === 'gte' && (!String(step.value).trim() || !Number.isFinite(Number(step.value)))) throw new Error('Numeric conditions need a valid threshold.');
+      const passed = operator === 'gte' ? (typeof actual === 'number' || typeof actual === 'string' && actual.trim() !== '') && Number.isFinite(Number(actual)) && Number(actual) >= Number(step.value) : Object.hasOwn(data, step.field) && String(actual) === step.value;
+      events.push({ id: step.id, status: passed ? 'passed' : 'stopped', message: `${step.field}: ${JSON.stringify(actual) ?? 'missing'} ${operator === 'gte' ? '≥' : '='} ${step.value} → ${passed ? 'continue' : 'stop'}` });
       stopped = !passed;
     } else if (step.type === 'set') {
       if (!step.field.trim() || ['__proto__', 'constructor', 'prototype'].includes(step.field)) throw new Error('Choose a safe, non-empty field name.');
