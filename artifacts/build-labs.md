@@ -7,7 +7,7 @@ The project sphere adapts [OriginKit Sphere Gallery 3D](https://www.originkit.de
 - `/labs/trace-lab`: local recursive JSON snapshot comparison, potential breaking-change flags, filters, validation feedback, and JSON report download. Arrays compare by index. This is not schema validation.
 - `/labs/flow-lab`: editable sequential workflow, up to 12 reorderable steps, numeric/text conditions, string field assignments, notification previews, execution trace, and workflow export. No external messages or API calls are made.
 
-Kha Mart links to its existing live storefront at https://kha-mart.vercel.app/. Its portfolio image is a designed cover, not a storefront screenshot.
+Kha Mart links to its existing live storefront at https://kha-mart.vercel.app/. Kha Mart, TraceLab, and FlowLab covers use actual live-site screenshots in branded browser frames. Other newly generated covers are explicitly marked as concept artwork.
 
 ## Deployment
 

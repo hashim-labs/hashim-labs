@@ -1,12 +1,13 @@
 export const projects = [
   {
     slug: 'leadmate-ai-sales-assistant',
+    artwork: true,
     group: 'AI & automation',
     kind: 'Collaboration',
     title: 'Leadmate AI Sales Assistant',
     category: 'AI Sales Platform',
     desc: 'An AI-powered sales assistant that helps teams organize, qualify, and act on leads through automated workflows.',
-    img: '/images/leadmate-preview.svg',
+    img: '/images/leadmate-cover.webp',
     stack: ['Next.js', 'React', 'Redux'],
     overview: 'Leadmate is an AI-powered sales assistant designed to help sales teams turn scattered lead activity into a clearer, more actionable workflow. The product combines structured lead management with intelligent, automated interactions.',
     role: 'Full-stack developer and product engineering collaborator',
@@ -16,13 +17,14 @@ export const projects = [
   },
   {
     slug: 'health-insurance-system',
+    artwork: true,
     group: 'Web & platforms',
     kind: 'Public repository',
     github: 'https://github.com/hashim-labs/Health-Insurance-Management-System-Asp.Net-Core-MVC-',
     title: 'Health Insurance System',
     category: 'Enterprise Software',
     desc: 'Role-based dashboards for managing employees, patients, administrators, and policy assignments.',
-    img: '/images/pharma.png',
+    img: '/images/insurance-cover.webp',
     stack: ['ASP.NET Core', 'MVC', 'SQL Server'],
     overview: 'A secure business application for coordinating insurance operations across employees, patients, administrators, and policy records through dedicated role-based dashboards.',
     role: 'Full-stack developer',
@@ -32,13 +34,14 @@ export const projects = [
   },
   {
     slug: 'hotel-management-system',
+    artwork: true,
     group: 'Web & platforms',
     kind: 'Public backend',
     github: 'https://github.com/hashim-labs/-H-Management-backend',
     title: 'Hotel Management System',
     category: 'Full-stack Web App',
     desc: 'A complete operations platform for room bookings, employees, salaries, and role management.',
-    img: '/images/management.png',
+    img: '/images/hotel-cover.webp',
     stack: ['Next.js', 'Node.js', 'Express'],
     overview: 'A full-stack hotel operations platform that brings reservations, employees, salaries, and access management into one responsive experience.',
     role: 'Full-stack developer',
@@ -90,8 +93,8 @@ projects.unshift(
   },
 );
 projects.push({
-  slug: 'watchhub', title: 'WatchHub', category: 'Flutter Application', group: 'Mobile', kind: 'Public repository',
-  github: 'https://github.com/hashim-labs/WatchHub', img: '/images/watchhub-preview.svg', stack: ['Flutter', 'Firebase', 'Provider'],
+  slug: 'watchhub', artwork: true, title: 'WatchHub', category: 'Flutter Application', group: 'Mobile', kind: 'Public repository',
+  github: 'https://github.com/hashim-labs/WatchHub', img: '/images/watchhub-cover.webp', stack: ['Flutter', 'Firebase', 'Provider'],
   desc: 'A Flutter project combining Firebase authentication and data services with animated interfaces and local preferences.',
   role: 'Application developer', overview: 'WatchHub is a public Flutter application. Its dependency manifest includes Firebase Auth, Firebase Realtime Database, Provider, shared preferences, and Lottie animations.',
   features: ['Flutter interface', 'Firebase integrations', 'Provider state management', 'Animation and local preference tooling'],
@@ -106,7 +109,7 @@ export function getProject(slug) {
 projects.push(
   {
     slug: 'kha-mart', title: 'Kha Mart', category: 'Local Commerce', group: 'Web & platforms', kind: 'Live project',
-    live: 'https://kha-mart.vercel.app/', img: '/images/kha-mart-preview.svg', stack: ['Web storefront', 'Product catalog', 'Vercel'],
+    live: 'https://kha-mart.vercel.app/', img: '/images/kha-mart-showcase.webp', stack: ['Web storefront', 'Product catalog', 'Vercel'],
     desc: 'A neighbourhood grocery storefront for Johar, Karachi, bringing everyday essentials into an approachable online shopping experience.',
     role: 'Project developer', overview: 'Kha Mart is a live kiryana and general-store website serving Johar, Karachi. Shoppers can browse groceries, pantry staples, snacks, and household essentials with pay-on-delivery ordering.',
     features: ['Everyday essentials catalog', 'Grocery and household product browsing', 'Local store information', 'Pay-on-delivery shopping'],
@@ -115,7 +118,7 @@ projects.push(
   },
   {
     slug: 'trace-lab', title: 'TraceLab', category: 'API Contract Explorer', group: 'Developer tools', kind: 'Interactive MVP',
-    live: '/labs/trace-lab', img: '/images/trace-lab-preview.svg', stack: ['Next.js', 'React', 'JSON analysis'],
+    live: '/labs/trace-lab', img: '/images/trace-lab-showcase.webp', stack: ['Next.js', 'React', 'JSON analysis'],
     desc: 'An API payload explorer that reveals contract drift, type changes, and missing fields before an integration breaks.',
     role: 'Product design and development', overview: 'TraceLab compares two JSON snapshots locally and produces a path-by-path change report. Removed fields and type changes are flagged for review, with filters and a downloadable JSON report.',
     features: ['Recursive JSON comparison', 'Removed-field and type-change detection', 'Change-category filtering', 'Downloadable analysis report'],
@@ -124,7 +127,7 @@ projects.push(
   },
   {
     slug: 'flow-lab', title: 'FlowLab', category: 'Automation Playground', group: 'Developer tools', kind: 'Interactive MVP',
-    live: '/labs/flow-lab', img: '/images/flow-lab-preview.svg', stack: ['Next.js', 'React', 'Workflow engine'],
+    live: '/labs/flow-lab', img: '/images/flow-lab-showcase.webp', stack: ['Next.js', 'React', 'Workflow engine'],
     desc: 'A visual workflow simulator for testing event-driven decisions, field transformations, and notification previews with an execution trace.',
     role: 'Product design and development', overview: 'FlowLab lets users assemble a sequential automation workflow, edit and reorder steps, supply a JSON trigger, and inspect each decision alongside the final payload. Everything runs locally as a simulation.',
     features: ['Editable and reorderable workflow steps', 'Numeric and text conditions', 'Field updates and notification previews', 'Execution trace and workflow JSON export'],
