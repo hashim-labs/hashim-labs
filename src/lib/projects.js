@@ -134,4 +134,22 @@ projects.push(
     challenges: 'Keeping workflow state and run results consistent as users edit steps, and making stopped and skipped actions easy to understand. Notifications are previews; the MVP does not send messages or call external services.',
     outcome: 'A working automation sandbox for understanding and testing workflow logic before connecting production services.',
   },
+  {
+    slug: 'fallback-atlas', title: 'Fallback Atlas', category: 'Dependency & Continuity Workspace', group: 'Developer tools', kind: 'Interactive MVP',
+    live: '/labs/fallback-atlas', img: '/images/fallback-atlas-showcase.webp', stack: ['Next.js', 'React', 'Graph analysis'],
+    desc: 'A local-first outage rehearsal tool that traces dependency failures and turns owner-assigned workarounds into a practical handoff playbook.',
+    role: 'Product design and development', overview: 'Fallback Atlas lets a small team model service dependencies, select outages, and see which workflows become blocked. Documented manual fallbacks can be explicitly activated in the simulation, and the team can export an owner-led rehearsal playbook.',
+    features: ['Editable dependency map with cycle detection', 'Cascading outage simulation', 'Explicit workaround activation and downstream degradation', 'Local browser storage and JSON/Markdown exports'],
+    challenges: 'Distinguishing a written fallback from an activated assumption, propagating dependency failures consistently, and rejecting cyclic maps without losing the editable workspace.',
+    outcome: 'A working planning MVP that helps teams discuss dependencies and ownership without injecting faults into real infrastructure.',
+  },
+  {
+    slug: 'scope-lens', title: 'ScopeLens', category: 'Scope & Capacity Workspace', group: 'Developer tools', kind: 'Interactive MVP',
+    live: '/labs/scope-lens', img: '/images/scope-lens-showcase.webp', stack: ['Next.js', 'React', 'Constrained optimization'],
+    desc: 'A scope trade-off workspace that compares requested work and finds a priority-weighted delivery option within a fixed hour budget.',
+    role: 'Product design and development', overview: 'ScopeLens makes additions, removals, and quantity changes explicit, then uses user-entered effort estimates and priorities to find a feasible combination of deliverables. Must-keep items remain protected, and an exportable change brief includes acceptance checks.',
+    features: ['Before/after quantities and effort deltas', 'Exact subset search across optional deliverables', 'Must-keep constraints and capacity shortfalls', 'Acceptance criteria, local saving, and portable change briefs'],
+    challenges: 'Making capacity trade-offs understandable, keeping required work from being silently dropped, and clearly separating user estimates from actual delivery commitments.',
+    outcome: 'A working planning MVP for freelancers and small teams who need a clear scope conversation rather than an invented quote.',
+  },
 );

@@ -3,48 +3,53 @@
 import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 
-const baseOptions = {
-  background: '#0f172a',
-  color: '#e2e8f0',
-  confirmButtonColor: '#67e8f9',
+function baseOptions() {
+  const light = typeof document !== 'undefined' && document.documentElement.dataset.workspaceTheme === 'light';
+  return {
+  background: light ? '#ffffff' : '#111827',
+  color: light ? '#24364e' : '#e2e8f0',
+  confirmButtonColor: light ? '#365a85' : '#b7c8e0',
+  heightAuto: false,
   customClass: {
     popup: 'portfolio-alert',
     title: 'portfolio-alert-title',
     htmlContainer: 'portfolio-alert-copy',
     confirmButton: 'portfolio-alert-button',
   },
-};
+  };
+}
 
 export function showSuccess(title, text) {
-  return Swal.fire({ ...baseOptions, icon: 'success', iconColor: '#6ee7b7', title, text, timer: 3200, timerProgressBar: true, showConfirmButton: false });
+  return Swal.fire({ ...baseOptions(), icon: 'success', iconColor: '#5aab87', title, text, timer: 2600, timerProgressBar: true, showConfirmButton: false });
 }
 
 export function showError(title, text) {
-  return Swal.fire({ ...baseOptions, icon: 'error', iconColor: '#fda4af', title, text, confirmButtonText: 'Close' });
+  return Swal.fire({ ...baseOptions(), icon: 'error', iconColor: '#ce6b82', title, text, confirmButtonText: 'Close' });
 }
 
 export function showInfo(title, text) {
-  return Swal.fire({ ...baseOptions, icon: 'info', iconColor: '#67e8f9', title, text, confirmButtonText: 'Okay' });
+  return Swal.fire({ ...baseOptions(), icon: 'info', iconColor: '#8fa8ca', title, text, confirmButtonText: 'Okay' });
 }
 
 export function confirmAction(title, text, confirmButtonText = 'Continue') {
   return Swal.fire({
-    ...baseOptions,
+    ...baseOptions(),
     icon: 'question',
-    iconColor: '#67e8f9',
+    iconColor: '#8fa8ca',
     title,
     text,
     showCancelButton: true,
     confirmButtonText,
     cancelButtonText: 'Cancel',
-    confirmButtonColor: '#67e8f9',
     cancelButtonColor: '#334155',
+    focusCancel: true,
+    reverseButtons: true,
   });
 }
 
 export function showLoading(title = 'Working securely...') {
   Swal.fire({
-    ...baseOptions,
+    ...baseOptions(),
     title,
     allowOutsideClick: false,
     allowEscapeKey: false,
@@ -55,4 +60,8 @@ export function showLoading(title = 'Working securely...') {
 
 export function closeAlert() {
   Swal.close();
+}
+
+export function showToast(title) {
+  return Swal.fire({ ...baseOptions(), title, icon: 'success', iconColor: '#5aab87', toast: true, position: 'top-end', timer: 2200, timerProgressBar: true, showConfirmButton: false });
 }

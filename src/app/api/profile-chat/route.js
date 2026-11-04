@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
-import { ensureSchema, getDb } from '@/lib/db';
-import { answerChatStarter, answerWithGemini, getProfileLinks, sanitizeHistory } from '@/lib/profile-bot';
+import { saveContactInquiry } from '@/lib/lead-store';
+import { answerChatStarter, answerProfileAssistant, getProfileLinks, sanitizeHistory, suggestedQuestions } from '@/lib/profile-bot';
+export const runtime = 'nodejs';
+export const maxDuration = 30;
 
 // Bound public model requests per server instance without retaining message text.
 const requestWindows = new Map();
@@ -18,7 +20,12 @@ function allowedRequest(request) {
 export async function POST(request) {
   try {
     if (!allowedRequest(request)) return NextResponse.json({ error: 'A few too many messages at once. Give me a minute, then try again.' }, { status: 429, headers: { 'Retry-After': '60' } });
-    const body = await request.json();
+    if (!request.headers.get('content-type')?.includes('application/json')) return NextResponse.json({ error: 'Send a JSON message.' }, { status: 415 });
+    const raw = await request.text();
+    if (raw.length > 32000) return NextResponse.json({ error: 'This conversation is too long. Start a new chat.' }, { status: 413 });
+    let body;
+    try { body = JSON.parse(raw); } catch { return NextResponse.json({ error: 'This message could not be read.' }, { status: 400 }); }
+    if (!body || Array.isArray(body) || typeof body !== 'object') return NextResponse.json({ error: 'Please provide a message.' }, { status: 400 });
     const question = typeof body.question === 'string' ? body.question.trim().slice(0, 1000) : '';
     const channel = typeof body.channel === 'string' ? body.channel.slice(0, 30) : 'portfolio-demo';
     const visitor = body.visitor && typeof body.visitor === 'object' ? body.visitor : {};
@@ -31,26 +38,26 @@ export async function POST(request) {
     if (!question) return NextResponse.json({ error: 'Please enter a question.' }, { status: 400 });
 
     const starterAnswer = answerChatStarter(question);
-    if (starterAnswer) return NextResponse.json({ answer: starterAnswer, links: [], needsReview: false, saved: false, usedGemini: false });
+    if (starterAnswer && !qualified) return NextResponse.json({ answer: starterAnswer, links: [], suggestions: ['What have you built?', 'What are your skills?', 'Can you build my app?'], needsReview: false, saved: false, provider: 'local', degraded: false });
 
-    const botResult = await answerWithGemini(question, {}, history);
-    const links = await getProfileLinks(question, history);
-    if (!qualified || !botResult.isGenuineLead) return NextResponse.json({ answer: botResult.answer, links, needsReview: botResult.needsReview, saved: false, usedGemini: botResult.usedGemini });
+    const botResult = starterAnswer ? {answer:starterAnswer,relatedProjects:[],needsReview:false,provider:'local',degraded:false} : await answerProfileAssistant(question, history, request.signal);
+    const candidateLinks = [...await getProfileLinks(question, history), ...botResult.relatedProjects];
+    const links = candidateLinks.filter((link, index) => candidateLinks.findIndex(item => item.href === link.href) === index).slice(0, 4);
+    const reply = { answer: botResult.answer, links, suggestions: await suggestedQuestions(question, history), needsReview: botResult.needsReview, saved: false, provider: botResult.provider, degraded: botResult.degraded };
+    if (!qualified) return NextResponse.json(reply, { headers: { 'Cache-Control': 'no-store' } });
 
     let saved = false;
     try {
-    await ensureSchema();
-    const existing = await getDb().query('SELECT 1 FROM bot_messages WHERE conversation_id = $1 LIMIT 1', [conversationId]);
-    if (!existing.rowCount) await getDb().query('INSERT INTO leads (name, email, message, source, conversation_id) VALUES ($1, $2, $3, $4, $5)', [name, email, goal, 'profile-bot', conversationId]);
-    await getDb().query('INSERT INTO bot_messages (question, answer, needs_review, conversation_id, channel) VALUES ($1, $2, $3, $4, $5)', [question, botResult.answer, botResult.needsReview, conversationId, channel]);
+    await saveContactInquiry({name,email,message:goal,source:'profile-bot',conversationId,chat:{question,answer:botResult.answer,needsReview:botResult.needsReview,channel}});
     saved = true;
     } catch {
       console.warn('Profile reply delivered, but follow-up storage is unavailable.');
     }
 
-    return NextResponse.json({ answer: botResult.answer, links, needsReview: botResult.needsReview, saved, usedGemini: botResult.usedGemini });
+    return NextResponse.json({ ...reply, saved }, { headers: { 'Cache-Control': 'no-store' } });
   } catch (error) {
-    console.error('Profile bot failed:', error);
+    if (error.name === 'AbortError') return new Response(null, { status: 499 });
+    console.warn('Profile bot request could not be completed.');
     return NextResponse.json({ error: 'The profile assistant is temporarily unavailable.' }, { status: 500 });
   }
 }
