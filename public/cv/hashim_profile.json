@@ -150,7 +150,7 @@
   },
   "projects": [
     {
-      "name": "KhairAgri",
+      "name": "Agribizz",
       "role": "Full-stack lead developer",
       "description": "An agricultural management platform with GIS mapping, satellite analysis, sensor integration, and five role-based dashboards.",
       "features": [
@@ -171,21 +171,12 @@
       ]
     },
     {
-      "name": "Crop2X - Crop Monitoring System (AG5)",
+      "name": "Agribizz - Crop Monitoring System (AG5)",
       "role": "Developer",
-      "description": "A separate Crop Monitoring System built for client AG5, leveraging IoT sensors and satellite imagery for precision agriculture, enabling real-time environmental data collection and analytics. Distinct from both KhairAgri and the Crop2X mobile app.",
+      "description": "A separate Crop Monitoring System built for client AG5, leveraging IoT sensors and satellite imagery for precision agriculture, enabling real-time environmental data collection and analytics. Distinct from the Agribizz platform.",
       "tech_stack": [
         "IoT sensors",
         "Satellite imagery"
-      ]
-    },
-    {
-      "name": "Crop2X Mobile App (AG5)",
-      "role": "Developer",
-      "description": "A separate Expo React Native mobile app built for client AG5, published under the 'Crop2X Pvt Ltd' developer account. Enhanced with new modules, data features, and performance improvements at RCAI NED.",
-      "tech_stack": [
-        "Expo",
-        "React Native"
       ]
     },
     {

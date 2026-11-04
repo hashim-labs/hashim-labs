@@ -20,14 +20,14 @@ GitHub identity: hashim-labs. Repository search returned nine public repositorie
 - Replaced repeated 3D and particle sections with a focused, responsive homepage.
 - Introduced restrained charcoal/green styling, a personal introduction, visible navigation, and clear actions.
 - Featured seven projects across agriculture, AI, web applications, and mobile development.
-- Added KhairAgri, Crop2X Mobile, and WatchHub detail routes using existing profile or repository evidence.
+- Renamed KhairAgri to Agribizz and removed the Crop2X Mobile project; Agribizz and WatchHub retain their detail routes.
 - Preserved existing case-study URLs, contact API, admin functionality, and profile assistant.
 - Added category filters, public source links, resume links, skip navigation, visible focus, and reduced-motion support.
 - Added metadata for homepage sharing and individual project titles.
 - Leadmate and WatchHub use labeled illustrative SVG overview graphics, not fabricated screenshots.
 
 ## Content follow-ups
-- Public GitHub uses AgriBiss/Agri-Cross while the local profile uses KhairAgri/Crop2X. Local names are retained; confirm whether these are renames or distinct products before merging them.
+- Public GitHub uses AgriBiss/Agri-Cross while the local profile uses Agribizz/Crop2X. Agribizz is the renamed KhairAgri project; Crop2X remains in work experience.
 - Strong repository READMEs should explain the problem, role, screenshots, setup, architecture, and limitations. No unrelated repositories were edited.
 - No conversion, performance, or customer metrics were added without evidence.
 - Existing portrait and agricultural preview assets are reused; a higher-resolution portrait and current project screenshots would improve presentation further.

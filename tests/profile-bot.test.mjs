@@ -6,7 +6,7 @@ test('understands common misspellings and shorthand',()=>{
   assert.equal(normalizeQuestion('research code number'), 'research code number');
 });
 test('answers multiple profile questions without keyword collisions',async()=>{
- assert.match(await answerProfileQuestion('What have you built?'),/KhairAgri/);
+ assert.match(await answerProfileQuestion('What have you built?'),/Agribizz/);
  const answer=await answerProfileQuestion('ur skils and eduction?'); assert.match(answer,/React/); assert.match(answer,/Allama Iqbal/);
  assert.match(await answerProfileQuestion('u build a webiste for my shop?'), /Yes.*websites/s);
  assert.doesNotMatch(await answerProfileQuestion('u build a webiste for my shop?'),/portfolio is/);
@@ -16,7 +16,7 @@ test('follow-up stack stays with the correct project',async()=>{
  const history=[{role:'user',text:'tell me abt agntos'},{role:'assistant',text:await answerProfileQuestion('tell me abt agntos')}];
  assert.match(await answerProfileQuestion('what stack does it use?',history), /AgentOS.*FastAPI/s);
  assert.equal((await getProfileLinks('what stack does it use?',history))[0].href,'/projects/agentos');
- assert.match(await answerProfileQuestion('and khairagri?',history),/KhairAgri/);
+ assert.match(await answerProfileQuestion('and khairagri?',history),/Agribizz/);
  assert.doesNotMatch(await answerProfileQuestion('ur education',history),/AgentOS/);
 });
 test('Roman Urdu capability questions and correct CV links',async()=>{
@@ -24,9 +24,10 @@ test('Roman Urdu capability questions and correct CV links',async()=>{
  assert.equal((await getProfileLinks('show ur cvv'))[0].href,'/cv');
 });
 test('knowledge excludes private notes and stale CV claims',async()=>{
- const profile=JSON.stringify(await loadProfile());
+ const loaded=await loadProfile(),profile=JSON.stringify(loaded);
  assert.doesNotMatch(profile,/crypto-mining|13 vulnerabilities|M.Sc.|2.5\+|thousands of users/);
  assert.match(profile,/Health Insurance/);assert.match(profile,/WatchHub/);
+ assert.match(profile,/Agribizz/);assert.doesNotMatch(profile,/AgriBiss App|crop2x-mobile/);
 });
 test('unknown details and provider outages do not invent facts',async()=>{
  const oldKey=process.env.GEMINI_API_KEY; delete process.env.GEMINI_API_KEY;
@@ -43,7 +44,7 @@ test('casual profile browsing is not a lead',()=>{
 });
 test('ambiguous project follow-ups ask rather than pick from a list',async()=>{
  const history=[{role:'user',text:'show me your projects'},{role:'assistant',text:await answerProfileQuestion('show me your projects')}];
- assert.doesNotMatch(await answerProfileQuestion('what stack does it use?',history),/^KhairAgri/);
+ assert.doesNotMatch(await answerProfileQuestion('what stack does it use?',history),/^AgriBiss/);
 });
 test('AI receives bounded history and professional facts, never visitor contact fields',async()=>{
  const originalFetch=globalThis.fetch,originalKey=process.env.GEMINI_API_KEY;

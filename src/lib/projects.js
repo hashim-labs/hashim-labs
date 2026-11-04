@@ -80,22 +80,13 @@ export const projects = [
 
 projects.unshift(
   {
-    slug: 'khairagri', title: 'KhairAgri', category: 'Agriculture & GIS', group: 'Web & platforms', kind: 'Client project',
+    slug: 'khairagri', title: 'Agribizz', category: 'Agriculture & GIS', group: 'Web & platforms', kind: 'Client project',
     desc: 'A field management platform connecting satellite imagery, sensor data, and role-based agricultural workflows.',
     img: '/images/khairagri-concept.webp', artwork: true, stack: ['Next.js', 'FastAPI', 'Earth Engine'], role: 'Full-stack lead developer',
-    overview: 'KhairAgri brings field mapping, satellite analysis, soil sensors, weather monitoring, and crop management into a shared platform for farmers, agronomists, managers, researchers, and administrators.',
+    overview: 'Agribizz brings field mapping, satellite analysis, soil sensors, weather monitoring, and crop management into a shared platform for farmers, agronomists, managers, researchers, and administrators.',
     features: ['GIS field mapping', 'NDVI and NDMI satellite analysis', 'Soil sensor and weather monitoring', 'Five role-based dashboards'],
     challenges: 'Integrating geospatial data, asynchronous satellite processing, and sensor readings into understandable workflows with clear loading and processing states.',
     outcome: 'A central workspace for agricultural teams to review field conditions and coordinate crop management.',
-  },
-  {
-    slug: 'crop2x-mobile', title: 'Crop2X Mobile', category: 'Field Monitoring', group: 'Mobile', kind: 'Client project',
-    desc: 'A mobile companion for crop monitoring, bringing agricultural data and field workflows into an Expo application.',
-    img: '/images/Cropsmart.png', stack: ['React Native', 'Expo'], role: 'Mobile application developer',
-    overview: 'A separate mobile application developed for AG5 under Crop2X. The work includes additional modules, data features, and performance improvements at RCAI NED.',
-    features: ['Mobile crop monitoring', 'Agricultural data access', 'Cross-platform application', 'Module and performance improvements'],
-    challenges: 'Making field data approachable on smaller screens while keeping navigation and data-heavy modules responsive.',
-    outcome: 'A mobile application published under the Crop2X developer account, giving users access to crop monitoring workflows.',
   },
 );
 projects.push({
