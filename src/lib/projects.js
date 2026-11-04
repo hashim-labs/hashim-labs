@@ -102,3 +102,33 @@ projects.push({
 export function getProject(slug) {
   return projects.find((project) => project.slug === slug);
 }
+
+projects.push(
+  {
+    slug: 'kha-mart', title: 'Kha Mart', category: 'Local Commerce', group: 'Web & platforms', kind: 'Live project',
+    live: 'https://kha-mart.vercel.app/', img: '/images/kha-mart-preview.svg', stack: ['Web storefront', 'Product catalog', 'Vercel'],
+    desc: 'A neighbourhood grocery storefront for Johar, Karachi, bringing everyday essentials into an approachable online shopping experience.',
+    role: 'Project developer', overview: 'Kha Mart is a live kiryana and general-store website serving Johar, Karachi. Shoppers can browse groceries, pantry staples, snacks, and household essentials with pay-on-delivery ordering.',
+    features: ['Everyday essentials catalog', 'Grocery and household product browsing', 'Local store information', 'Pay-on-delivery shopping'],
+    challenges: 'Making a neighbourhood store easy to discover online and organizing everyday products into an approachable shopping experience.',
+    outcome: 'A deployed storefront connecting local shoppers with Kha Mart’s grocery and household offering.',
+  },
+  {
+    slug: 'trace-lab', title: 'TraceLab', category: 'API Contract Explorer', group: 'Developer tools', kind: 'Interactive MVP',
+    live: '/labs/trace-lab', img: '/images/trace-lab-preview.svg', stack: ['Next.js', 'React', 'JSON analysis'],
+    desc: 'An API payload explorer that reveals contract drift, type changes, and missing fields before an integration breaks.',
+    role: 'Product design and development', overview: 'TraceLab compares two JSON snapshots locally and produces a path-by-path change report. Removed fields and type changes are flagged for review, with filters and a downloadable JSON report.',
+    features: ['Recursive JSON comparison', 'Removed-field and type-change detection', 'Change-category filtering', 'Downloadable analysis report'],
+    challenges: 'Presenting deeply nested differences clearly while distinguishing structural changes from ordinary value updates. Arrays are compared by index; snapshot checks do not replace schema validation.',
+    outcome: 'A working local-first MVP developers can use immediately without account setup or API keys.',
+  },
+  {
+    slug: 'flow-lab', title: 'FlowLab', category: 'Automation Playground', group: 'Developer tools', kind: 'Interactive MVP',
+    live: '/labs/flow-lab', img: '/images/flow-lab-preview.svg', stack: ['Next.js', 'React', 'Workflow engine'],
+    desc: 'A visual workflow simulator for testing event-driven decisions, field transformations, and notification previews with an execution trace.',
+    role: 'Product design and development', overview: 'FlowLab lets users assemble a sequential automation workflow, edit and reorder steps, supply a JSON trigger, and inspect each decision alongside the final payload. Everything runs locally as a simulation.',
+    features: ['Editable and reorderable workflow steps', 'Numeric and text conditions', 'Field updates and notification previews', 'Execution trace and workflow JSON export'],
+    challenges: 'Keeping workflow state and run results consistent as users edit steps, and making stopped and skipped actions easy to understand. Notifications are previews; the MVP does not send messages or call external services.',
+    outcome: 'A working automation sandbox for understanding and testing workflow logic before connecting production services.',
+  },
+);
